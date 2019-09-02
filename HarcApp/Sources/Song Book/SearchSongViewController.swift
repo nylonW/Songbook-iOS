@@ -44,6 +44,11 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
     
     func updateSearchResults(for searchController: UISearchController) {
         filterContentSearchText(searchController.searchBar.text!)
+        
+        if searchBarIsEmpty() {
+            filteredSongs = SongManager.shared().songs
+            tableView.reloadData()
+        }
     }
     
     func searchBarIsEmpty() -> Bool {

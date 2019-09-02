@@ -17,8 +17,15 @@ class SearchSongTableViewCell: UITableViewCell {
     var song: Song? {
         didSet {
             songName.text = song?.title
-            author.text = song?.author
+            if let author = song?.author {
+                self.author.text = author
+            } else {
+                author.text = "-"
+            }
             tags.text = song?.tagsAsString
+            if song?.tagsAsString.count ?? 0 <= 1 {
+                tags.text = ""
+            }
         }
     }
 }

@@ -55,12 +55,19 @@ class SongBookPageViewController: UIPageViewController {
     func goToPage(index: Int) {
         if index < vcs.count {
             self.setViewControllers([vcs[index]], direction: .forward, animated: true, completion: nil)
+            
+            reloadViews()
         }
     }
-
 }
 
 extension SongBookPageViewController: UIPageViewControllerDataSource {
+    
+    func reloadViews() {
+        self.dataSource = nil
+        self.dataSource = self
+    }
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
