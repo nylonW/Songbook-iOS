@@ -26,7 +26,7 @@ class SongManager {
                         songs.append(song)
                     }
                 } catch {
-                    print("catch")
+                    print(error)
                 }
             } else {
                 print("not found")

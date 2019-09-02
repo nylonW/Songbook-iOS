@@ -7,7 +7,7 @@ import Foundation
 
 // MARK: - Stops
 class Song: Codable {
-    let author, moderator, performer: String
+    let author, moderator, performer: String?
     let tags: [String]
     let tagsAsCode, tagsAsString, title: String
     let version: Int
@@ -18,7 +18,7 @@ class Song: Codable {
     let songChords, songText, refrenChordsAsString, refrenText: String
     let zwrotkiElement: [ZwrotkiElement]
     let fileName: String
-    let link: String
+    let link: String?
     let simpleTags: [String]
     let official: Bool
     

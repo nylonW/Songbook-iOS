@@ -29,6 +29,8 @@ class FirstViewController: UIViewController, SearchSongIndexDelegate {
         self.view.addSubview(controller.view)
         self.addChild(controller)
         controller.didMove(toParent: self)
+        self.title = "Śpiewnik"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Museo", size: 20)!]
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
     }
@@ -36,10 +38,12 @@ class FirstViewController: UIViewController, SearchSongIndexDelegate {
     @objc func searchTapped() {
         print("search tapped")
         
-        let searchSong = songStoryboard.instantiateViewController(withIdentifier: "searchSongViewController") as? SearchSongViewController
-        searchSong?.delegate = self
+        let searchSong = songStoryboard.instantiateViewController(withIdentifier: "searchSongViewController") as! SearchSongViewController
+        searchSong.delegate = self
         
-        present(searchSong!, animated: true, completion: nil)
+        let wrapper = UINavigationController(rootViewController: searchSong)
+        
+        present(wrapper, animated: true, completion: nil)
     }
 }
 
