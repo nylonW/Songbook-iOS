@@ -41,21 +41,30 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="wOl-9T-JCj">
-                                        <rect key="frame" x="20" y="72" width="374" height="20.5"/>
+                                        <rect key="frame" x="8" y="72" width="356" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="afk-VZ-nK8">
+                                        <rect key="frame" x="364" y="72" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="afk-VZ-nK8" firstAttribute="leading" secondItem="wOl-9T-JCj" secondAttribute="trailing" id="0ss-LR-uqf"/>
+                                    <constraint firstItem="afk-VZ-nK8" firstAttribute="top" secondItem="qAW-OP-BJt" secondAttribute="bottom" constant="16" id="55O-qN-byA"/>
                                     <constraint firstItem="wOl-9T-JCj" firstAttribute="top" secondItem="qAW-OP-BJt" secondAttribute="bottom" constant="16" id="5Lw-tT-EI1"/>
                                     <constraint firstItem="qAW-OP-BJt" firstAttribute="leading" secondItem="Y6f-fh-H6b" secondAttribute="leading" constant="20" id="8Pv-UM-gvK"/>
-                                    <constraint firstItem="qAW-OP-BJt" firstAttribute="leading" secondItem="wOl-9T-JCj" secondAttribute="leading" id="CaQ-da-cY6"/>
                                     <constraint firstItem="qAW-OP-BJt" firstAttribute="top" secondItem="Y6f-fh-H6b" secondAttribute="topMargin" id="Sxk-uk-BUR"/>
-                                    <constraint firstItem="qAW-OP-BJt" firstAttribute="trailing" secondItem="wOl-9T-JCj" secondAttribute="trailing" id="aG8-YU-BHv"/>
-                                    <constraint firstAttribute="bottom" secondItem="wOl-9T-JCj" secondAttribute="bottom" constant="20" id="aJ2-Pa-THi"/>
+                                    <constraint firstAttribute="trailing" secondItem="afk-VZ-nK8" secondAttribute="trailing" constant="8" id="USz-5p-9fj"/>
+                                    <constraint firstAttribute="bottom" secondItem="afk-VZ-nK8" secondAttribute="bottom" constant="20" id="Uww-lE-vZc"/>
+                                    <constraint firstItem="wOl-9T-JCj" firstAttribute="leading" secondItem="Y6f-fh-H6b" secondAttribute="leading" constant="8" id="jBS-G8-8JB"/>
                                     <constraint firstAttribute="trailing" secondItem="qAW-OP-BJt" secondAttribute="trailing" constant="20" id="leY-As-V5u"/>
                                     <constraint firstItem="qAW-OP-BJt" firstAttribute="centerX" secondItem="Y6f-fh-H6b" secondAttribute="centerX" id="s3s-bw-Yqk"/>
+                                    <constraint firstItem="afk-VZ-nK8" firstAttribute="centerY" secondItem="wOl-9T-JCj" secondAttribute="centerY" id="tFF-rg-fBk"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -69,13 +78,14 @@
                         <viewLayoutGuide key="safeArea" id="si0-h2-sDp"/>
                     </view>
                     <connections>
+                        <outlet property="chords" destination="afk-VZ-nK8" id="NIi-7x-N23"/>
                         <outlet property="name" destination="qAW-OP-BJt" id="yNU-bR-7gP"/>
                         <outlet property="songText" destination="wOl-9T-JCj" id="LKg-dh-LPf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8T-8T-Vu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1194" y="-258"/>
+            <point key="canvasLocation" x="1192.753623188406" y="-258.48214285714283"/>
         </scene>
         <!--Search Song View Controller-->
         <scene sceneID="wet-6Y-Qs0">
@@ -103,6 +113,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="gah-Sq-1Jf" id="Flj-Zm-aQ0"/>
                         <outlet property="tableView" destination="xci-KQ-ElZ" id="HNi-JZ-nmJ"/>
+                        <outlet property="tableViewBottomConstraint" destination="wQT-Zw-deI" id="4r7-SD-vUc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQG-9Y-c29" userLabel="First Responder" sceneMemberID="firstResponder"/>

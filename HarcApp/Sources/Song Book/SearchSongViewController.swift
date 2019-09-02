@@ -36,6 +36,32 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         
         filteredSongs = SongManager.shared().songs
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification , object:nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification , object:nil)
+    }
+    
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+        
+        UIView.animate(withDuration: 2, animations: {
+            self.tableViewBottomConstraint.constant = keyboardHeight
+            self.tableView.layoutIfNeeded()
+        })
+        
+        print(keyboardHeight)
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+        print(keyboardHeight)
+        
+        UIView.animate(withDuration: 0.1, animations: {
+            self.tableViewBottomConstraint.constant = 0
+        })
     }
     
     @objc func done() {
