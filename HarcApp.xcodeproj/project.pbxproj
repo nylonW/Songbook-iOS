@@ -15,6 +15,10 @@
 		850FADFB231C4D4200F3FD6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FADF9231C4D4200F3FD6B /* LaunchScreen.storyboard */; };
 		850FAE06231C4D4200F3FD6B /* HarcAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FAE05231C4D4200F3FD6B /* HarcAppTests.swift */; };
 		850FAE11231C4D4200F3FD6B /* HarcAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FAE10231C4D4200F3FD6B /* HarcAppUITests.swift */; };
+		850FAE1F231C524500F3FD6B /* CenterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FAE1E231C524500F3FD6B /* CenterNavigationController.swift */; };
+		850FAE21231C695200F3FD6B /* SongBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FAE20231C695200F3FD6B /* SongBook.storyboard */; };
+		850FAE24231C69F000F3FD6B /* SongBookPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FAE23231C69F000F3FD6B /* SongBookPageViewController.swift */; };
+		850FAE26231C6A4900F3FD6B /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FAE25231C6A4900F3FD6B /* SongViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		850FAE0C231C4D4200F3FD6B /* HarcAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarcAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FAE10231C4D4200F3FD6B /* HarcAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarcAppUITests.swift; sourceTree = "<group>"; };
 		850FAE12231C4D4200F3FD6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		850FAE1E231C524500F3FD6B /* CenterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterNavigationController.swift; sourceTree = "<group>"; };
+		850FAE20231C695200F3FD6B /* SongBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SongBook.storyboard; sourceTree = "<group>"; };
+		850FAE23231C69F000F3FD6B /* SongBookPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBookPageViewController.swift; sourceTree = "<group>"; };
+		850FAE25231C6A4900F3FD6B /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +107,14 @@
 		850FADED231C4D4000F3FD6B /* HarcApp */ = {
 			isa = PBXGroup;
 			children = (
+				850FAE28231D284800F3FD6B /* Sources */,
+				850FAE27231D283A00F3FD6B /* Songs */,
+				850FAE22231C69CC00F3FD6B /* Song Book */,
 				850FADEE231C4D4000F3FD6B /* AppDelegate.swift */,
 				850FADF0231C4D4000F3FD6B /* FirstViewController.swift */,
 				850FADF2231C4D4000F3FD6B /* SecondViewController.swift */,
 				850FADF4231C4D4000F3FD6B /* Main.storyboard */,
+				850FAE1E231C524500F3FD6B /* CenterNavigationController.swift */,
 				850FADF7231C4D4200F3FD6B /* Assets.xcassets */,
 				850FADF9231C4D4200F3FD6B /* LaunchScreen.storyboard */,
 				850FADFC231C4D4200F3FD6B /* Info.plist */,
@@ -126,6 +138,30 @@
 				850FAE12231C4D4200F3FD6B /* Info.plist */,
 			);
 			path = HarcAppUITests;
+			sourceTree = "<group>";
+		};
+		850FAE22231C69CC00F3FD6B /* Song Book */ = {
+			isa = PBXGroup;
+			children = (
+				850FAE23231C69F000F3FD6B /* SongBookPageViewController.swift */,
+				850FAE20231C695200F3FD6B /* SongBook.storyboard */,
+				850FAE25231C6A4900F3FD6B /* SongViewController.swift */,
+			);
+			path = "Song Book";
+			sourceTree = "<group>";
+		};
+		850FAE27231D283A00F3FD6B /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Songs;
+			sourceTree = "<group>";
+		};
+		850FAE28231D284800F3FD6B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +271,7 @@
 				850FADFB231C4D4200F3FD6B /* LaunchScreen.storyboard in Resources */,
 				850FADF8231C4D4200F3FD6B /* Assets.xcassets in Resources */,
 				850FADF6231C4D4000F3FD6B /* Main.storyboard in Resources */,
+				850FAE21231C695200F3FD6B /* SongBook.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850FAE1F231C524500F3FD6B /* CenterNavigationController.swift in Sources */,
 				850FADF3231C4D4000F3FD6B /* SecondViewController.swift in Sources */,
 				850FADEF231C4D4000F3FD6B /* AppDelegate.swift in Sources */,
+				850FAE26231C6A4900F3FD6B /* SongViewController.swift in Sources */,
 				850FADF1231C4D4000F3FD6B /* FirstViewController.swift in Sources */,
+				850FAE24231C69F000F3FD6B /* SongBookPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

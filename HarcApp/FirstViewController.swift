@@ -9,12 +9,17 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+    
+    var isExpanded = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let storyboard = UIStoryboard(name: "SongBook", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SongBookPageViewController")
+        self.view.addSubview(controller.view)
+        self.addChild(controller)
+        controller.didMove(toParent: self)
     }
-
 
 }
 
