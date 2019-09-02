@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Museo500-Regular.otf">
+            <string>Museo-500</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchSongTableViewCell" rowHeight="86" id="KGk-i7-Jjw" customClass="SearchSongTableViewCell" customModule="HarcApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="86"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="85.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMg-WG-7xV">
+                        <rect key="frame" x="16" y="10" width="92.5" height="20"/>
+                        <fontDescription key="fontDescription" name="Museo-500" family="Museo" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jge-JZ-WRn">
+                        <rect key="frame" x="16" y="32" width="50.5" height="20"/>
+                        <fontDescription key="fontDescription" name="Museo-500" family="Museo" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwO-wI-2gb">
+                        <rect key="frame" x="16" y="55" width="42.5" height="20"/>
+                        <fontDescription key="fontDescription" name="Museo-500" family="Museo" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="iwO-wI-2gb" firstAttribute="top" secondItem="jge-JZ-WRn" secondAttribute="bottom" constant="3" id="Fi6-cX-Bzp"/>
+                    <constraint firstItem="iwO-wI-2gb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="GTK-2H-eif"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iwO-wI-2gb" secondAttribute="trailing" constant="16" id="Okw-BU-JXv"/>
+                    <constraint firstItem="jge-JZ-WRn" firstAttribute="top" secondItem="iMg-WG-7xV" secondAttribute="bottom" constant="2" id="goz-sZ-Mra"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iMg-WG-7xV" secondAttribute="trailing" constant="16" id="ldE-Is-99w"/>
+                    <constraint firstItem="jge-JZ-WRn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="mFb-yO-QY6"/>
+                    <constraint firstItem="iMg-WG-7xV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="p47-Ze-rCO"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jge-JZ-WRn" secondAttribute="trailing" constant="16" id="z6p-73-0PR"/>
+                    <constraint firstItem="iMg-WG-7xV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="zaI-30-eeL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="author" destination="jge-JZ-WRn" id="tX6-QD-0ru"/>
+                <outlet property="songName" destination="iMg-WG-7xV" id="QgJ-R3-6q4"/>
+                <outlet property="tags" destination="iwO-wI-2gb" id="thK-n1-yWe"/>
+            </connections>
+            <point key="canvasLocation" x="136.95652173913044" y="129.91071428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
