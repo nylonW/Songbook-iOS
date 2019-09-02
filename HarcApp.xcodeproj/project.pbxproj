@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		850FADEF231C4D4000F3FD6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FADEE231C4D4000F3FD6B /* AppDelegate.swift */; };
-		850FADF1231C4D4000F3FD6B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FADF0231C4D4000F3FD6B /* FirstViewController.swift */; };
-		850FADF3231C4D4000F3FD6B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FADF2231C4D4000F3FD6B /* SecondViewController.swift */; };
+		850FADF1231C4D4000F3FD6B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FADF0231C4D4000F3FD6B /* ContainerViewController.swift */; };
+		850FADF3231C4D4000F3FD6B /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FADF2231C4D4000F3FD6B /* DrawerController.swift */; };
 		850FADF6231C4D4000F3FD6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FADF4231C4D4000F3FD6B /* Main.storyboard */; };
 		850FADF8231C4D4200F3FD6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850FADF7231C4D4200F3FD6B /* Assets.xcassets */; };
 		850FADFB231C4D4200F3FD6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FADF9231C4D4200F3FD6B /* LaunchScreen.storyboard */; };
@@ -608,6 +608,7 @@
 		850FB2C2231D4F2A00F3FD6B /* SearchSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FB2C1231D4F2A00F3FD6B /* SearchSongViewController.swift */; };
 		850FB2C6231D536100F3FD6B /* SearchSongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FB2C4231D536100F3FD6B /* SearchSongTableViewCell.swift */; };
 		850FB2C7231D536100F3FD6B /* SearchSongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850FB2C5231D536100F3FD6B /* SearchSongTableViewCell.xib */; };
+		850FB2CA231DAC3A00F3FD6B /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FB2C9231DAC3A00F3FD6B /* DrawerTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -630,8 +631,8 @@
 /* Begin PBXFileReference section */
 		850FADEB231C4D4000F3FD6B /* HarcApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarcApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FADEE231C4D4000F3FD6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		850FADF0231C4D4000F3FD6B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		850FADF2231C4D4000F3FD6B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		850FADF0231C4D4000F3FD6B /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		850FADF2231C4D4000F3FD6B /* DrawerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
 		850FADF5231C4D4000F3FD6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		850FADF7231C4D4200F3FD6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		850FADFA231C4D4200F3FD6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1235,6 +1236,7 @@
 		850FB2C1231D4F2A00F3FD6B /* SearchSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongViewController.swift; sourceTree = "<group>"; };
 		850FB2C4231D536100F3FD6B /* SearchSongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongTableViewCell.swift; sourceTree = "<group>"; };
 		850FB2C5231D536100F3FD6B /* SearchSongTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchSongTableViewCell.xib; sourceTree = "<group>"; };
+		850FB2C9231DAC3A00F3FD6B /* DrawerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1285,6 +1287,7 @@
 		850FADED231C4D4000F3FD6B /* HarcApp */ = {
 			isa = PBXGroup;
 			children = (
+				850FB2C8231DAC2500F3FD6B /* Drawer */,
 				850FB2B5231D38D000F3FD6B /* Fonts */,
 				850FAE28231D284800F3FD6B /* Sources */,
 				850FAE27231D283A00F3FD6B /* Songs */,
@@ -1919,8 +1922,7 @@
 				850FB2AF231D29E600F3FD6B /* Models */,
 				850FAE1E231C524500F3FD6B /* CenterNavigationController.swift */,
 				850FADF4231C4D4000F3FD6B /* Main.storyboard */,
-				850FADF2231C4D4000F3FD6B /* SecondViewController.swift */,
-				850FADF0231C4D4000F3FD6B /* FirstViewController.swift */,
+				850FADF0231C4D4000F3FD6B /* ContainerViewController.swift */,
 				850FADEE231C4D4000F3FD6B /* AppDelegate.swift */,
 				850FAE22231C69CC00F3FD6B /* Song Book */,
 			);
@@ -1969,6 +1971,15 @@
 				850FB2C5231D536100F3FD6B /* SearchSongTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		850FB2C8231DAC2500F3FD6B /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				850FADF2231C4D4000F3FD6B /* DrawerController.swift */,
+				850FB2C9231DAC3A00F3FD6B /* DrawerTableViewController.swift */,
+			);
+			path = Drawer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2689,11 +2700,12 @@
 			files = (
 				850FB2B1231D29F900F3FD6B /* Song.swift in Sources */,
 				850FAE1F231C524500F3FD6B /* CenterNavigationController.swift in Sources */,
+				850FB2CA231DAC3A00F3FD6B /* DrawerTableViewController.swift in Sources */,
 				850FB2C6231D536100F3FD6B /* SearchSongTableViewCell.swift in Sources */,
-				850FADF3231C4D4000F3FD6B /* SecondViewController.swift in Sources */,
+				850FADF3231C4D4000F3FD6B /* DrawerController.swift in Sources */,
 				850FADEF231C4D4000F3FD6B /* AppDelegate.swift in Sources */,
 				850FAE26231C6A4900F3FD6B /* SongViewController.swift in Sources */,
-				850FADF1231C4D4000F3FD6B /* FirstViewController.swift in Sources */,
+				850FADF1231C4D4000F3FD6B /* ContainerViewController.swift in Sources */,
 				850FB2C0231D3FEE00F3FD6B /* String+StringSize.swift in Sources */,
 				850FB2B4231D332500F3FD6B /* SongManager.swift in Sources */,
 				850FAE24231C69F000F3FD6B /* SongBookPageViewController.swift in Sources */,

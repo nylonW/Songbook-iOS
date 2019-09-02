@@ -8,16 +8,20 @@
 
 import UIKit
 
+protocol ManageDrawerDelegate {
+    func select(at index: Int)
+    func closeDrawer()
+}
 
-
-class SecondViewController: UIViewController, RootViewControllerDelegate {
+class DrawerController: UIViewController, RootViewControllerDelegate, ManageDrawerDelegate {
 
     var isExpanded = false
     
     var rootViewController: CenterNavigationController
-    var drawerViewController: UITableViewController
+    var drawerViewController: DrawerTableViewController
+    var containerViewController: ContainerViewController!
     
-    init(rootViewController: CenterNavigationController, drawerController: UITableViewController) {
+    init(rootViewController: CenterNavigationController, drawerController: DrawerTableViewController) {
         self.rootViewController = rootViewController
         self.drawerViewController = drawerController
         super.init(nibName: nil, bundle: nil)
@@ -26,9 +30,12 @@ class SecondViewController: UIViewController, RootViewControllerDelegate {
     required init?(coder aDecoder: NSCoder) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        rootViewController = CenterNavigationController(mainViewController: storyboard.instantiateViewController(withIdentifier: "homeViewController"), topNavigationLeftImage: nil)
-        drawerViewController = storyboard.instantiateViewController(withIdentifier: "drawerTableView") as! UITableViewController
+        containerViewController = storyboard.instantiateViewController(withIdentifier: "homeViewController") as? ContainerViewController
+        rootViewController = CenterNavigationController(mainViewController: containerViewController, topNavigationLeftImage: nil)
+        drawerViewController = storyboard.instantiateViewController(withIdentifier: "drawerTableView") as! DrawerTableViewController
         super.init(coder: aDecoder)
+        
+        drawerViewController.delegate = self
     }
     
     override func viewDidLoad() {
@@ -44,6 +51,17 @@ class SecondViewController: UIViewController, RootViewControllerDelegate {
         
         self.rootViewController.drawerDelegate = self
     }
+    
+    func select(at index: Int) {
+        containerViewController.select(at: index)
+    }
+    
+    func closeDrawer() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.rootViewController.view.frame.origin.x = 0
+            self.isExpanded = false
+        })
+    }
 
     func rootViewControllerDidTapMenuButton(rootViewController: CenterNavigationController) {
         UIView.animate(withDuration: 0.3, animations: {
@@ -55,6 +73,5 @@ class SecondViewController: UIViewController, RootViewControllerDelegate {
             self.isExpanded.toggle()
         })
     }
-
 }
 

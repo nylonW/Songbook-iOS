@@ -24,6 +24,7 @@ class SongBookPageViewController: UIPageViewController {
         }
         
         //goToPage(index: 90)
+        self.view.backgroundColor = .white
     }
     
 

@@ -9,11 +9,16 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Museo500-Regular.otf">
+            <string>Museo-500</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Second View Controller-->
+        <!--Drawer Controller-->
         <scene sceneID="NRP-2d-kdA">
             <objects>
-                <viewController id="xlI-6C-G7W" customClass="SecondViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xlI-6C-G7W" customClass="DrawerController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B2U-ri-5dm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,11 +30,11 @@
             </objects>
             <point key="canvasLocation" x="-252" y="-532"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Drawer Table View Controller-->
         <scene sceneID="Jzd-qK-RJa">
             <objects>
-                <tableViewController storyboardIdentifier="drawerTableView" id="sVO-15-tma" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lxS-wQ-LTR">
+                <tableViewController storyboardIdentifier="drawerTableView" id="sVO-15-tma" customClass="DrawerTableViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lxS-wQ-LTR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,8 +57,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1U1-uj-IdI">
-                                                    <rect key="frame" x="20" y="11" width="42" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="20" y="11" width="43" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Museo-500" family="Museo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -73,8 +78,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Śpiewnik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPW-Ov-v5V">
-                                                    <rect key="frame" x="20" y="11" width="68.5" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="20" y="11" width="72" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Museo-500" family="Museo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -94,10 +99,29 @@
                             <outlet property="delegate" destination="sVO-15-tma" id="TBz-d7-HSp"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="aboutCell" destination="Wtp-pI-UF6" id="h3f-xb-u7u"/>
+                        <outlet property="songBookCell" destination="cKQ-58-U7p" id="t93-KK-vVo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJq-0p-Aeb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="665" y="-532"/>
+        </scene>
+        <!--ESSA-->
+        <scene sceneID="zd5-p5-M5O">
+            <objects>
+                <viewController restorationIdentifier="essaViewController" storyboardIdentifier="essaViewController" title="ESSA" id="Gex-nQ-Js4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Rx-SK-duD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="systemBrownColor" catalog="System" colorSpace="catalog"/>
+                        <viewLayoutGuide key="safeArea" id="zcA-ts-zgp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f1o-jA-QVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1484" y="140"/>
         </scene>
         <!--Center Navigation Controller-->
         <scene sceneID="qcu-sC-mpv">
@@ -112,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="-252" y="140"/>
         </scene>
-        <!--First View Controller-->
+        <!--Container View Controller-->
         <scene sceneID="ICt-nA-E62">
             <objects>
-                <viewController storyboardIdentifier="homeViewController" id="SaU-zu-pj5" customClass="FirstViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" id="SaU-zu-pj5" customClass="ContainerViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aht-A9-rm0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
