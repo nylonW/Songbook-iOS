@@ -609,6 +609,7 @@
 		850FB2C6231D536100F3FD6B /* SearchSongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FB2C4231D536100F3FD6B /* SearchSongTableViewCell.swift */; };
 		850FB2C7231D536100F3FD6B /* SearchSongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850FB2C5231D536100F3FD6B /* SearchSongTableViewCell.xib */; };
 		850FB2CA231DAC3A00F3FD6B /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FB2C9231DAC3A00F3FD6B /* DrawerTableViewController.swift */; };
+		85B33506231EF37500A497DB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B33505231EF37500A497DB /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1237,6 +1238,7 @@
 		850FB2C4231D536100F3FD6B /* SearchSongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongTableViewCell.swift; sourceTree = "<group>"; };
 		850FB2C5231D536100F3FD6B /* SearchSongTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchSongTableViewCell.xib; sourceTree = "<group>"; };
 		850FB2C9231DAC3A00F3FD6B /* DrawerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
+		85B33505231EF37500A497DB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1287,11 +1289,10 @@
 		850FADED231C4D4000F3FD6B /* HarcApp */ = {
 			isa = PBXGroup;
 			children = (
-				850FB2C8231DAC2500F3FD6B /* Drawer */,
 				850FB2B5231D38D000F3FD6B /* Fonts */,
 				850FAE28231D284800F3FD6B /* Sources */,
 				850FAE27231D283A00F3FD6B /* Songs */,
-				850FADF7231C4D4200F3FD6B /* Assets.xcassets */,
+				85B33504231EF35A00A497DB /* Supporting Files */,
 				850FADF9231C4D4200F3FD6B /* LaunchScreen.storyboard */,
 				850FADFC231C4D4200F3FD6B /* Info.plist */,
 			);
@@ -1917,6 +1918,7 @@
 		850FAE28231D284800F3FD6B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				850FB2C8231DAC2500F3FD6B /* Drawer */,
 				850FB2BE231D3FD100F3FD6B /* Extensions */,
 				850FB2B2231D331200F3FD6B /* Managers */,
 				850FB2AF231D29E600F3FD6B /* Models */,
@@ -1980,6 +1982,15 @@
 				850FB2C9231DAC3A00F3FD6B /* DrawerTableViewController.swift */,
 			);
 			path = Drawer;
+			sourceTree = "<group>";
+		};
+		85B33504231EF35A00A497DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				850FADF7231C4D4200F3FD6B /* Assets.xcassets */,
+				85B33505231EF37500A497DB /* Constants.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2705,6 +2716,7 @@
 				850FADF3231C4D4000F3FD6B /* DrawerController.swift in Sources */,
 				850FADEF231C4D4000F3FD6B /* AppDelegate.swift in Sources */,
 				850FAE26231C6A4900F3FD6B /* SongViewController.swift in Sources */,
+				85B33506231EF37500A497DB /* Constants.swift in Sources */,
 				850FADF1231C4D4000F3FD6B /* ContainerViewController.swift in Sources */,
 				850FB2C0231D3FEE00F3FD6B /* String+StringSize.swift in Sources */,
 				850FB2B4231D332500F3FD6B /* SongManager.swift in Sources */,

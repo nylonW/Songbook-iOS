@@ -16,6 +16,8 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
     var filteredSongs: [Song] = []
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,25 +26,44 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
         let nib = UINib(nibName: searchCellId, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: searchCellId)
         
+        setupSearchController()
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        filteredSongs = SongManager.shared().songs
+        
+        
+    }
+    
+    func setupKeyboardObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification , object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification , object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    func setupSearchController() {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Wyszukaj piosenkę"
+        
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        searchController.becomeFirstResponder()
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        let textFieldInsideUISearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideUISearchBar?.font = Constants.fonts.museo
         
-        filteredSongs = SongManager.shared().songs
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification , object:nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification , object:nil)
+        // SearchBar placeholder
+        let textFieldInsideUISearchBarLabel = textFieldInsideUISearchBar!.value(forKey: "placeholderLabel") as? UILabel
+        textFieldInsideUISearchBarLabel?.font = Constants.fonts.museo
     }
     
-    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+
     
     @objc func keyboardWillShow(notification: NSNotification) {
         let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
