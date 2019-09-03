@@ -10,6 +10,7 @@ import UIKit
 
 protocol RootViewControllerDelegate: class {
     func rootViewControllerDidTapMenuButton(rootViewController: CenterNavigationController)
+    func enableDarkMode(enable: Bool)
 }
 
 class CenterNavigationController: UINavigationController, UINavigationControllerDelegate {
@@ -40,13 +41,32 @@ class CenterNavigationController: UINavigationController, UINavigationController
     }
     
     @objc func tapped() {        
-        drawerDelegate?.rootViewControllerDidTapMenuButton(rootViewController: self)
+        //drawerDelegate?.rootViewControllerDidTapMenuButton(rootViewController: self)
+        
+        enableDarkMode()
+    }
+    var darkMode = false
+    
+    func enableDarkMode() {
+        darkMode = true
+        UIView.animate(withDuration: 1, animations: {
+            self.navigationBar.barTintColor = .black
+            
+            if var textAttributes = self.navigationBar.titleTextAttributes {
+                textAttributes[NSAttributedString.Key.foregroundColor] = UIColor.white
+                self.navigationBar.titleTextAttributes = textAttributes
+            }
+            
+            self.navigationBar.layoutIfNeeded()
+        })
+        
+        drawerDelegate?.enableDarkMode(enable: darkMode)
+        navigationBar.tintColor = .white
     }
     
     public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         prepareNavigationBar()
     }
-
 }
 
 extension CenterNavigationController {

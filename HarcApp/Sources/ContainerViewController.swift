@@ -18,6 +18,7 @@ class ContainerViewController: UIViewController, SearchSongIndexDelegate {
     let songStoryboard = UIStoryboard(name: "SongBook", bundle: nil)
     var controller: SongBookPageViewController!
     var aboutViewController: UIViewController!
+    var buttons: [UIBarButtonItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,15 @@ class ContainerViewController: UIViewController, SearchSongIndexDelegate {
         self.title = "Śpiewnik"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Museo", size: 20)!]
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
+        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "Music-Guitar-icon.png"), style: .plain, target: self, action: nil)
+        let settings = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-settings-50.png"), style: .plain, target: self, action: nil)
+        buttons.append(button)
+        buttons.append(settings)
+        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped)),
+            settings,
+            button
+        ]
         
         if controller != nil {
             self.view.bringSubviewToFront(controller.view)

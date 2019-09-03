@@ -58,6 +58,19 @@ class DrawerController: UIViewController, RootViewControllerDelegate, ManageDraw
         self.rootViewController.view.addGestureRecognizer(panGesture)
         self.rootViewController.view.addGestureRecognizer(tapGesture)
     }
+    var darkMode = false
+    func enableDarkMode(enable: Bool) {
+        darkMode = true
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if darkMode {
+            return .lightContent
+        } else {
+            return .default
+        }
+    }
     
     func select(at index: Int) {
         containerViewController.select(at: index)
