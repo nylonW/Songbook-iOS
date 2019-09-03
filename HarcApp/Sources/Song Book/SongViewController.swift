@@ -26,22 +26,28 @@ class SongViewController: UIViewController {
             chords.lineSpacing(spacing: 1)
             songText.lineSpacing(spacing: 1)
             
-            let lines = song.songText.split(separator: "\n")
-            var fontSize: CGFloat = songText.font.pointSize
+            var lines = song.songText.split(separator: "\n").map(String.init)
+            var largestLine = lines[0]
             for line in lines {
-                var lineWidth = String(line).widthOfString(usingFont: songText.font)
-                
-                while lineWidth > self.songText.frame.size.width {
-                    fontSize -= 0.1
-                    
-                    
-                    lineWidth = String(line).widthOfString(usingFont: self.songText.font.withSize(fontSize))
+                if String(line).widthOfString(usingFont: songText.font) > String(largestLine).widthOfString(usingFont: songText.font) {
+                    largestLine = line
                 }
-                
+            }
+            
+            var fontSize: CGFloat = songText.font.pointSize
+            var lineWidth = String(largestLine).widthOfString(usingFont: songText.font)
+            
+            songText.layoutIfNeeded()
+            
+            while lineWidth > self.songText.frame.size.width {
+                fontSize -= 0.6
+                    
                 self.songText.font = self.songText.font.withSize(fontSize)
                 self.chords.font = self.songText.font.withSize(fontSize)
-                self.songText.sizeToFit()
+                self.songText.setNeedsLayout()
                 self.songText.layoutIfNeeded()
+                
+                lineWidth = String(largestLine).widthOfString(usingFont: self.songText.font.withSize(fontSize))
             }
         }
     }
