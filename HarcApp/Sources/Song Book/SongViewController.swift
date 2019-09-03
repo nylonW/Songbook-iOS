@@ -21,39 +21,30 @@ class SongViewController: UIViewController {
 
         if let song = song {
             name.text = song.title
-            songText.text = song.songText.replacingOccurrences(of: " ", with: "\u{00a0}")
-            chords.text = song.songChords.replacingOccurrences(of: " ", with: "\u{00a0}")
+            songText.text = song.songText
+            chords.text = song.songChords
             chords.lineSpacing(spacing: 1)
             songText.lineSpacing(spacing: 1)
             
             let lines = song.songText.split(separator: "\n")
+            var fontSize: CGFloat = songText.font.pointSize
             for line in lines {
-                var lineWidth = String(line.replacingOccurrences(of: " ", with: "_")).widthOfString(usingFont: songText.font)
+                var lineWidth = String(line).widthOfString(usingFont: songText.font)
                 
-                while lineWidth >= self.songText.frame.size.width {
-                    let fontSize = songText.font.pointSize - 0.1
-                    self.songText.font = self.songText.font.withSize(fontSize)
-                    self.chords.font = self.songText.font.withSize(fontSize)
+                while lineWidth > self.songText.frame.size.width {
+                    fontSize -= 0.1
                     
-                    lineWidth = String(line.replacingOccurrences(of: " ", with: "_")).widthOfString(usingFont: self.songText.font)
-                    //print(lineWidth)
                     
+                    lineWidth = String(line).widthOfString(usingFont: self.songText.font.withSize(fontSize))
                 }
+                
+                self.songText.font = self.songText.font.withSize(fontSize)
+                self.chords.font = self.songText.font.withSize(fontSize)
+                self.songText.sizeToFit()
                 self.songText.layoutIfNeeded()
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension UILabel {

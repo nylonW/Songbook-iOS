@@ -50,13 +50,20 @@ class DrawerController: UIViewController, RootViewControllerDelegate, ManageDraw
         rootViewController.didMove(toParent: self)
         
         self.rootViewController.drawerDelegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeDrawer))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(closeDrawer))
+        
+        self.drawerViewController.view.addGestureRecognizer(panGesture)
+        self.rootViewController.view.addGestureRecognizer(panGesture)
+        self.rootViewController.view.addGestureRecognizer(tapGesture)
     }
     
     func select(at index: Int) {
         containerViewController.select(at: index)
     }
     
-    func closeDrawer() {
+    @objc func closeDrawer() {
         UIView.animate(withDuration: 0.3, animations: {
             self.rootViewController.view.frame.origin.x = 0
             self.isExpanded = false
