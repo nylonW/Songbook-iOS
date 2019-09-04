@@ -26,6 +26,8 @@ class SearchSongTableViewCell: UITableViewCell {
             if song?.tagsAsString.count ?? 0 <= 1 {
                 tags.text = ""
             }
+            author.textColor = Constants.Colors.scrollGray
+            tags.textColor = Constants.Colors.scrollGray
         }
     }
 }

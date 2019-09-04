@@ -12,10 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
         print(SongManager.shared())
         setupGlobalAppearance()
         return true
@@ -24,8 +24,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupGlobalAppearance(){
         let customFont = Constants.fonts.museo
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: customFont!], for: .normal)
-        //UITextField.appearance().font = customFont
         UITextField.appearance().font = customFont
+        
+        if UserDefaults.standard.bool(forKey: "darkMode") {
+            UITableView.appearance().backgroundColor = .black
+            UITableViewCell.appearance().backgroundColor = Constants.Colors.darkSecondary
+            UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = .white
+            UINavigationBar.appearance().barTintColor = .black
+            UINavigationBar.appearance().barStyle = .black
+            UINavigationBar.appearance().tintColor = .white
+            UITableView.appearance().separatorColor = UIColor(red:0.14, green:0.14, blue:0.15, alpha:1.0)
+            UITabBar.appearance().barTintColor = Constants.Colors.darkSecondary
+            UITabBar.appearance().tintColor = .white
+        } else {
+            UINavigationBar.appearance().barTintColor = .white
+            UINavigationBar.appearance().barStyle = .default
+            UINavigationBar.appearance().tintColor = .systemBlue
+            UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = .black
+            UITableView.appearance().backgroundColor = .groupTableViewBackground
+            UITableViewCell.appearance().backgroundColor = .white
+            UITableView.appearance().separatorColor = UITableView().separatorColor
+            UITabBar.appearance().barTintColor = UITabBar().barTintColor
+            UITabBar.appearance().tintColor = .systemBlue
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

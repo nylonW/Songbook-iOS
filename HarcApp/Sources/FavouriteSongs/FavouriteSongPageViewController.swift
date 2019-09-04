@@ -1,22 +1,23 @@
 //
-//  SongBookPageViewController.swift
+//  FavouriteSongPageViewController.swift
 //  HarcApp
 //
-//  Created by Marcin Slusarek on 01/09/2019.
+//  Created by Marcin Slusarek on 04/09/2019.
 //  Copyright © 2019 Marcin Slusarek. All rights reserved.
 //
 
 import UIKit
 
-class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate {
+class FavouriteSongPageViewController: UIPageViewController, SearchSongIndexDelegate {
     
     var vcs: [UIViewController] = []
     let songStoryboard = UIStoryboard(name: "SongBook", bundle: nil)
+    var favouriteSongs: [String] = []
     var isDarkMode = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         dataSource = self
         // Do any additional setup after loading the view.
         if let firstViewController = orderedViewControllers.first {
@@ -29,13 +30,7 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate 
         //goToPage(index: 90)
         self.view.backgroundColor = .white
         
-        self.title = "Śpiewnik"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Museo", size: 20)!]
-        
-        let settings = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-settings-50.png"), style: .plain, target: self, action: #selector(showSettings))
-        
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped)), settings]
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,11 +43,25 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate 
         } else {
             self.view.backgroundColor = .white
         }
-    }
-    
-    @objc func showSettings() {
-        let settingsViewController = songStoryboard.instantiateViewController(withIdentifier: "settingsViewController")
-        self.navigationController?.pushViewController(settingsViewController, animated: true)
+        
+        if favouriteSongs != UserDefaults.standard.stringArray(forKey: "favouriteSongs") ?? [] {
+            favouriteSongs = UserDefaults.standard.stringArray(forKey: "favouriteSongs") ?? []
+            
+            reloadViews()
+            orderedViewControllers = []
+            orderedViewControllers = reloadViewControllers()
+            if orderedViewControllers.count == 0 {
+                orderedViewControllers = [songStoryboard.instantiateViewController(withIdentifier: "emptyFavouritesViewController")]
+            }
+            
+            if let firstViewController = orderedViewControllers.first {
+                setViewControllers([firstViewController],
+                                   direction: .forward,
+                                   animated: false,
+                                   completion: nil)
+            }
+            reloadViews()
+        }
     }
     
     @objc func searchTapped() {
@@ -69,16 +78,35 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate 
     }
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
+        favouriteSongs = UserDefaults.standard.stringArray(forKey: "favouriteSongs") ?? []
         for song in SongManager.shared().songs {
-            vcs.append(self.newSongViewController(song: song))
+            if favouriteSongs.contains(song.fileName) {
+                vcs.append(self.newSongViewController(song: song))
+            }
+        }
+        
+        if vcs.count == 0 {
+            vcs.append(songStoryboard.instantiateViewController(withIdentifier: "emptyFavouritesViewController"))
         }
         
         return vcs
     }()
     
+    private func reloadViewControllers() -> [UIViewController] {
+        vcs = []
+        for song in SongManager.shared().songs {
+            if favouriteSongs.contains(song.fileName) {
+                vcs.append(self.newSongViewController(song: song))
+            }
+        }
+        
+        return vcs
+    }
+    
     private func newSongViewController(song: Song) -> UIViewController {
         let songViewController = UIStoryboard(name: "SongBook", bundle: nil).instantiateViewController(withIdentifier: "SongViewController") as! SongViewController
         songViewController.song = song
+        songViewController.fromFavourites = true
         return songViewController
     }
     
@@ -95,10 +123,9 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate 
         let controller = pendingViewControllers.first as! SongViewController
         controller.setDarkMode()
     }
-    
 }
 
-extension SongBookPageViewController: UIPageViewControllerDataSource {
+extension FavouriteSongPageViewController: UIPageViewControllerDataSource {
     
     func reloadViews() {
         self.dataSource = nil

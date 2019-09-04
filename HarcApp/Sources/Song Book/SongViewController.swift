@@ -16,15 +16,25 @@ class SongViewController: UIViewController {
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var performer: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
+    @IBOutlet weak var favouriteButtonWidth: NSLayoutConstraint!
     
     var song: Song?
     var isFavourite = false
     var favouriteSongs: [String] = []
+    var fromFavourites = false
+    var isDarkMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         favouriteSongs = UserDefaults.standard.stringArray(forKey: "favouriteSongs") ?? []
+        isDarkMode = UserDefaults.standard.bool(forKey: "darkMode")
+        
+        if fromFavourites {
+            favouriteButton.isHidden = true
+            favouriteButtonWidth.constant = 0
+            favouriteButton.layoutIfNeeded()
+        }
 
         if let song = song {
             name.text = song.title
@@ -61,8 +71,36 @@ class SongViewController: UIViewController {
             
             if favouriteSongs.contains(song.fileName) {
                 isFavourite = true
-                favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50-filled.png"), for: .normal)
+                favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50-filled.png").withRenderingMode(.alwaysTemplate), for: .normal)
+            } else {
+                favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50.png").withRenderingMode(.alwaysTemplate), for: .normal)
             }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setDarkMode()
+    }
+    
+    func setDarkMode() {
+        isDarkMode = UserDefaults.standard.bool(forKey: "darkMode")
+        
+        if isDarkMode {
+            self.view.backgroundColor = .black
+            name.textColor = .white
+            songText.textColor = .white
+            chords.textColor = .white
+            author.textColor = .white
+            performer.textColor = .white
+            favouriteButton.tintColor = .white
+        } else {
+            self.view.backgroundColor = .white
+            name.textColor = .black
+            songText.textColor = .black
+            chords.textColor = .black
+            author.textColor = .black
+            performer.textColor = .black
+            favouriteButton.tintColor = .black
         }
     }
     
@@ -73,10 +111,10 @@ class SongViewController: UIViewController {
         
         if isFavourite {
             favouriteSongs.append(songName)
-            favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50-filled.png"), for: .normal)
+            favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50-filled.png").withRenderingMode(.alwaysTemplate), for: .normal)
         } else {
             favouriteSongs.removeAll(where: {$0 == songName})
-            favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50.png"), for: .normal)
+            favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50.png").withRenderingMode(.alwaysTemplate), for: .normal)
         }
         
         UserDefaults.standard.set(favouriteSongs, forKey: "favouriteSongs")
