@@ -14,7 +14,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var showChordsSwitch: UISwitch!
     
     var isDarkMode = false
-    var showChords = false
+    var showChords = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +28,20 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
+            let alert = UIAlertController(title: "Wyczyść ulubione", message: "Czy na pewno chcesz usunąć wszystkie piosenki z ulubionych?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Anuluj", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Wyczyść", style: .destructive, handler: { handler in
+                UserDefaults.standard.set([], forKey: "favouriteSongs")
+            }))
             
+            present(alert, animated: true, completion: nil)
         }
     }
     
     @IBAction func darkModeDidSwitch(_ sender: UISwitch) {
         isDarkMode = darkModeSwitch.isOn
         UserDefaults.standard.set(isDarkMode, forKey: "darkMode")
+        
         if isDarkMode {
             UITableView.appearance().backgroundColor = .black
             UITableViewCell.appearance().backgroundColor = Constants.Colors.darkSecondary
@@ -80,6 +87,13 @@ class SettingsTableViewController: UITableViewController {
     
     
     @IBAction func showChordsDidSwitch(_ sender: Any) {
+        showChords = showChordsSwitch.isOn
+        UserDefaults.standard.set(showChords, forKey: "showChords")
         
+        if showChords {
+            
+        } else {
+            
+        }
     }
 }

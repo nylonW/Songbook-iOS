@@ -17,18 +17,25 @@ class SongViewController: UIViewController {
     @IBOutlet weak var performer: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var favouriteButtonWidth: NSLayoutConstraint!
+    @IBOutlet weak var separatorView: UIView!
     
+    var constraint: NSLayoutConstraint?
     var song: Song?
     var isFavourite = false
     var favouriteSongs: [String] = []
     var fromFavourites = false
     var isDarkMode = false
+    var showChords = true
+    
+    var scalledFont: CGFloat?
+    var scalledChordsTextLabelWidth: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         favouriteSongs = UserDefaults.standard.stringArray(forKey: "favouriteSongs") ?? []
         isDarkMode = UserDefaults.standard.bool(forKey: "darkMode")
+        showChords = UserDefaults.standard.bool(forKey: "showChords")
         
         if fromFavourites {
             favouriteButton.isHidden = true
@@ -68,6 +75,9 @@ class SongViewController: UIViewController {
                 
                 lineWidth = String(largestLine).widthOfString(usingFont: self.songText.font.withSize(fontSize))
             }
+            scalledFont = fontSize
+            scalledChordsTextLabelWidth = self.songText.frame.width
+            constraint = NSLayoutConstraint(item: self.chords!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 0)
             
             if favouriteSongs.contains(song.fileName) {
                 isFavourite = true
@@ -77,9 +87,29 @@ class SongViewController: UIViewController {
             }
         }
     }
-    
+   
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setDarkMode()
+        setShowChords()
+    }
+
+    func setShowChords() {
+        showChords = UserDefaults.standard.bool(forKey: "showChords")
+        guard let constraint = constraint else { return }
+        
+        if showChords {
+            self.chords.isHidden = false
+            self.separatorView.isHidden = false
+            NSLayoutConstraint.deactivate([constraint])
+            self.chords.layoutIfNeeded()
+            self.songText.font = self.songText.font.withSize(scalledFont ?? 17)
+        } else {
+            self.chords.isHidden = true
+            self.separatorView.isHidden = true
+            NSLayoutConstraint.activate([constraint])
+            self.songText.font = self.songText.font.withSize(17)
+        }
     }
     
     func setDarkMode() {

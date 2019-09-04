@@ -94,6 +94,7 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate 
                             willTransitionTo pendingViewControllers: [UIViewController]) {
         let controller = pendingViewControllers.first as! SongViewController
         controller.setDarkMode()
+        controller.setShowChords()
     }
     
 }

@@ -132,6 +132,7 @@
                         <outlet property="favouriteButtonWidth" destination="wjQ-tn-zxr" id="rWB-xh-zvk"/>
                         <outlet property="name" destination="qAW-OP-BJt" id="yNU-bR-7gP"/>
                         <outlet property="performer" destination="g71-fx-w9s" id="nGO-Fq-MQO"/>
+                        <outlet property="separatorView" destination="BX0-JC-Fu2" id="6Up-zM-L3u"/>
                         <outlet property="songText" destination="wOl-9T-JCj" id="LKg-dh-LPf"/>
                     </connections>
                 </viewController>

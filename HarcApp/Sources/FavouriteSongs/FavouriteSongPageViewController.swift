@@ -122,6 +122,7 @@ class FavouriteSongPageViewController: UIPageViewController, SearchSongIndexDele
                             willTransitionTo pendingViewControllers: [UIViewController]) {
         let controller = pendingViewControllers.first as! SongViewController
         controller.setDarkMode()
+        controller.setShowChords()
     }
 }
 
