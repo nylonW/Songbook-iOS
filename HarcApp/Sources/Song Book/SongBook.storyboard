@@ -52,9 +52,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BX0-JC-Fu2">
+                                        <rect key="frame" x="363" y="72" width="1" height="20.5"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="0.2538259845890411" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="aYf-L9-Kf3"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="afk-VZ-nK8" firstAttribute="leading" secondItem="wOl-9T-JCj" secondAttribute="trailing" id="0ss-LR-uqf"/>
+                                    <constraint firstItem="afk-VZ-nK8" firstAttribute="leading" secondItem="BX0-JC-Fu2" secondAttribute="trailing" id="2Zs-jg-wjH"/>
+                                    <constraint firstItem="BX0-JC-Fu2" firstAttribute="top" secondItem="afk-VZ-nK8" secondAttribute="top" id="4M0-Xq-veo"/>
                                     <constraint firstItem="afk-VZ-nK8" firstAttribute="top" secondItem="qAW-OP-BJt" secondAttribute="bottom" constant="16" id="55O-qN-byA"/>
                                     <constraint firstItem="wOl-9T-JCj" firstAttribute="top" secondItem="qAW-OP-BJt" secondAttribute="bottom" constant="16" id="5Lw-tT-EI1"/>
                                     <constraint firstItem="qAW-OP-BJt" firstAttribute="leading" secondItem="Y6f-fh-H6b" secondAttribute="leading" constant="20" id="8Pv-UM-gvK"/>
@@ -63,6 +72,7 @@
                                     <constraint firstAttribute="bottom" secondItem="afk-VZ-nK8" secondAttribute="bottom" constant="20" id="Uww-lE-vZc"/>
                                     <constraint firstItem="wOl-9T-JCj" firstAttribute="leading" secondItem="Y6f-fh-H6b" secondAttribute="leading" constant="8" id="jBS-G8-8JB"/>
                                     <constraint firstAttribute="trailing" secondItem="qAW-OP-BJt" secondAttribute="trailing" constant="20" id="leY-As-V5u"/>
+                                    <constraint firstItem="BX0-JC-Fu2" firstAttribute="height" secondItem="afk-VZ-nK8" secondAttribute="height" id="nmM-zh-v26"/>
                                     <constraint firstItem="qAW-OP-BJt" firstAttribute="centerX" secondItem="Y6f-fh-H6b" secondAttribute="centerX" id="s3s-bw-Yqk"/>
                                     <constraint firstItem="afk-VZ-nK8" firstAttribute="centerY" secondItem="wOl-9T-JCj" secondAttribute="centerY" id="tFF-rg-fBk"/>
                                 </constraints>
