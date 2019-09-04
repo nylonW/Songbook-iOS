@@ -74,13 +74,10 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
             self.tableViewBottomConstraint.constant = keyboardHeight
             self.tableView.layoutIfNeeded()
         })
-        
-        print(keyboardHeight)
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
-        print(keyboardHeight)
         
         UIView.animate(withDuration: 0.1, animations: {
             self.tableViewBottomConstraint.constant = 0

@@ -66,9 +66,7 @@ class ContainerViewController: UIViewController, SearchSongIndexDelegate {
         aboutViewController.didMove(toParent: self)
     }
     
-    @objc func searchTapped() {
-        print("search tapped")
-        
+    @objc func searchTapped() {        
         let searchSong = songStoryboard.instantiateViewController(withIdentifier: "searchSongViewController") as! SearchSongViewController
         searchSong.delegate = self
         

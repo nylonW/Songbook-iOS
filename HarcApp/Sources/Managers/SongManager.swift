@@ -14,7 +14,6 @@ class SongManager {
         
         var songs: [Song] = []
         let files = Bundle.main.paths(forResourcesOfType: "", inDirectory: nil)
-        print(files.count)
         for var file in files {
             file = String(file.split(separator: "/").last ?? "")
             if let filepath = Bundle.main.path(forResource: file, ofType: "") {

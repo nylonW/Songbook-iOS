@@ -29,9 +29,12 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
             let alert = UIAlertController(title: "Wyczyść ulubione", message: "Czy na pewno chcesz usunąć wszystkie piosenki z ulubionych?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Anuluj", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Anuluj", style: .cancel, handler: { handler in
+                tableView.deselectRow(at: indexPath, animated: true)
+            }))
             alert.addAction(UIAlertAction(title: "Wyczyść", style: .destructive, handler: { handler in
                 UserDefaults.standard.set([], forKey: "favouriteSongs")
+                tableView.deselectRow(at: indexPath, animated: true)
             }))
             
             present(alert, animated: true, completion: nil)

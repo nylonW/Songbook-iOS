@@ -148,7 +148,6 @@ class SongViewController: UIViewController {
         }
         
         UserDefaults.standard.set(favouriteSongs, forKey: "favouriteSongs")
-        print(favouriteSongs)
     }
 }
 
