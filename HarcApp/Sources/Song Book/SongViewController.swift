@@ -13,16 +13,25 @@ class SongViewController: UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var songText: UILabel!
     @IBOutlet weak var chords: UILabel!
+    @IBOutlet weak var author: UILabel!
+    @IBOutlet weak var performer: UILabel!
+    @IBOutlet weak var favouriteButton: UIButton!
     
     var song: Song?
+    var isFavourite = false
+    var favouriteSongs: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        favouriteSongs = UserDefaults.standard.stringArray(forKey: "favouriteSongs") ?? []
 
         if let song = song {
             name.text = song.title
             songText.text = song.songText
             chords.text = song.songChords
+            author.text = "Autor słów: \(song.author ?? "-")"
+            performer.text = "Wykonawca: \(song.performer ?? "-")"
             chords.lineSpacing(spacing: 1)
             songText.lineSpacing(spacing: 1)
             
@@ -49,7 +58,29 @@ class SongViewController: UIViewController {
                 
                 lineWidth = String(largestLine).widthOfString(usingFont: self.songText.font.withSize(fontSize))
             }
+            
+            if favouriteSongs.contains(song.fileName) {
+                isFavourite = true
+                favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50-filled.png"), for: .normal)
+            }
         }
+    }
+    
+    @IBAction func favouriteButtonTapped(_ sender: Any) {
+        isFavourite.toggle()
+        favouriteSongs = UserDefaults.standard.stringArray(forKey: "favouriteSongs") ?? []
+        guard let songName = song?.fileName else { return }
+        
+        if isFavourite {
+            favouriteSongs.append(songName)
+            favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50-filled.png"), for: .normal)
+        } else {
+            favouriteSongs.removeAll(where: {$0 == songName})
+            favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50.png"), for: .normal)
+        }
+        
+        UserDefaults.standard.set(favouriteSongs, forKey: "favouriteSongs")
+        print(favouriteSongs)
     }
 }
 
