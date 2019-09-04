@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i1x-N4-jhG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="35F-1Y-Gqm">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,15 +15,18 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Song Book Page View Controller-->
+        <!--Item-->
         <scene sceneID="9WX-c7-Sxa">
             <objects>
-                <pageViewController storyboardIdentifier="SongBookPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="i1x-N4-jhG" customClass="SongBookPageViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="SongBookPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="i1x-N4-jhG" customClass="SongBookPageViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ouj-bh-Fl0"/>
+                    <navigationItem key="navigationItem" id="3uC-Fm-dBn"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIX-pe-g9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="487" y="-258"/>
+            <point key="canvasLocation" x="1257" y="-287"/>
         </scene>
-        <!--Song View Controller-->
+        <!--Item-->
         <scene sceneID="WYA-pW-kFn">
             <objects>
                 <viewController storyboardIdentifier="SongViewController" id="ZS2-Ny-GQY" customClass="SongViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,6 +90,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="si0-h2-sDp"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="YZv-6j-rY3"/>
                     <connections>
                         <outlet property="chords" destination="afk-VZ-nK8" id="NIi-7x-N23"/>
                         <outlet property="name" destination="qAW-OP-BJt" id="yNU-bR-7gP"/>
@@ -95,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8T-8T-Vu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192.753623188406" y="-258.48214285714283"/>
+            <point key="canvasLocation" x="2102.898550724638" y="-258.48214285714283"/>
         </scene>
         <!--Search Song View Controller-->
         <scene sceneID="wet-6Y-Qs0">
@@ -153,6 +157,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78d-6f-K69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1193" y="405"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hiT-NN-o0H">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="35F-1Y-Gqm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a2t-GH-8TY">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Xxo-KE-Tjp" kind="relationship" relationship="viewControllers" id="LWV-Vd-ajV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOR-y6-ntl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-241" y="-287"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Km2-aZ-YXL">
+            <objects>
+                <navigationController id="Xxo-KE-Tjp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="1UJ-Zn-sau"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ule-JL-OpD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="i1x-N4-jhG" kind="relationship" relationship="rootViewController" id="cUC-Fw-elY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YBb-Qj-BVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="507" y="-287"/>
         </scene>
     </scenes>
 </document>

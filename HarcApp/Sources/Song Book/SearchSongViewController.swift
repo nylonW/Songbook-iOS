@@ -27,8 +27,10 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
         self.tableView.register(nib, forCellReuseIdentifier: searchCellId)
         
         setupSearchController()
+        setupKeyboardObservers()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        let doneButton = UIBarButtonItem(title: "Gotowe", style: .done, target: self, action: #selector(done))
+        navigationItem.leftBarButtonItem = doneButton
         filteredSongs = SongManager.shared().songs
         
         

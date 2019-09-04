@@ -8,8 +8,10 @@
 
 import UIKit
 
-class SongBookPageViewController: UIPageViewController {
+class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate {
+    
     var vcs: [UIViewController] = []
+    let songStoryboard = UIStoryboard(name: "SongBook", bundle: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +27,32 @@ class SongBookPageViewController: UIPageViewController {
         
         //goToPage(index: 90)
         self.view.backgroundColor = .white
+        
+        self.title = "Śpiewnik"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Museo", size: 20)!]
+        
+        let settings = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-settings-50.png"), style: .plain, target: self, action: nil)
+        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped)), settings]
+        
     }
     
-
+    @objc func toggleFavourites() {
+        
+    }
+    
+    @objc func searchTapped() {
+        let searchSong = songStoryboard.instantiateViewController(withIdentifier: "searchSongViewController") as! SearchSongViewController
+        searchSong.delegate = self
+        
+        let wrapper = UINavigationController(rootViewController: searchSong)
+        
+        present(wrapper, animated: true, completion: nil)
+    }
+    
+    func navigateToPage(index: Int) {
+        goToPage(index: index)
+    }
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         for song in SongManager.shared().songs {
@@ -42,16 +67,6 @@ class SongBookPageViewController: UIPageViewController {
         songViewController.song = song
         return songViewController
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-     
-    */
     
     func goToPage(index: Int) {
         if index < vcs.count {
