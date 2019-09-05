@@ -10,9 +10,17 @@ import UIKit
 
 class EmptyFavouritesViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var hintLabel: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let isDarkMode = UserDefaults.standard.bool(forKey: "darkMode")
+        
+        if isDarkMode {
+            hintLabel.textColor = .white
+        } else {
+            hintLabel.textColor = .black
+        }
     }
 }

@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupGlobalAppearance(){
         let customFont = Constants.fonts.museo
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: customFont!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: customFont!.withSize(12)], for: .normal)
         UITextField.appearance().font = customFont
         
         if UserDefaults.standard.bool(forKey: "darkMode") {

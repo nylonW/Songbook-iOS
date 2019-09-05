@@ -185,7 +185,7 @@
         <scene sceneID="G9F-L7-vn9">
             <objects>
                 <navigationController title="Ulubione" id="fHE-EM-xTe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ulubione" id="j4z-wv-LR4"/>
+                    <tabBarItem key="tabBarItem" title="Ulubione" image="icons8-heart-50-filled" id="j4z-wv-LR4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oML-Ow-BtM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -208,10 +208,10 @@
             </objects>
             <point key="canvasLocation" x="1257" y="443"/>
         </scene>
-        <!--View Controller-->
+        <!--Empty Favourites View Controller-->
         <scene sceneID="jb9-cO-Bqo">
             <objects>
-                <viewController storyboardIdentifier="emptyFavouritesViewController" id="Jye-xx-2ki" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="emptyFavouritesViewController" id="Jye-xx-2ki" customClass="EmptyFavouritesViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7KL-Vj-JOp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,7 +223,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="L4V-hc-4TW" firstAttribute="centerY" secondItem="K4y-dG-Nwe" secondAttribute="centerY" id="JfL-k1-0kf"/>
                             <constraint firstItem="K4y-dG-Nwe" firstAttribute="trailing" secondItem="L4V-hc-4TW" secondAttribute="trailing" constant="20" id="ZL0-iD-RSg"/>
@@ -231,6 +231,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K4y-dG-Nwe"/>
                     </view>
+                    <connections>
+                        <outlet property="hintLabel" destination="L4V-hc-4TW" id="Z2T-Zp-7tz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLY-mZ-n70" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,6 +365,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="35F-1Y-Gqm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a2t-GH-8TY">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -374,12 +378,11 @@
             </objects>
             <point key="canvasLocation" x="-241" y="-287"/>
         </scene>
-        <!--Item-->
+        <!--Śpiewnik-->
         <scene sceneID="Km2-aZ-YXL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YBb-Qj-BVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Xxo-KE-Tjp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="1UJ-Zn-sau"/>
+                    <tabBarItem key="tabBarItem" title="Śpiewnik" image="5015296531548336228" id="1UJ-Zn-sau"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ule-JL-OpD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -388,11 +391,14 @@
                         <segue destination="i1x-N4-jhG" kind="relationship" relationship="rootViewController" id="cUC-Fw-elY"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YBb-Qj-BVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="507" y="-287"/>
         </scene>
     </scenes>
     <resources>
+        <image name="5015296531548336228" width="22" height="27.333333969116211"/>
         <image name="icons8-heart-50" width="25" height="25"/>
+        <image name="icons8-heart-50-filled" width="25" height="25"/>
     </resources>
 </document>

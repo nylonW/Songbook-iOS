@@ -610,7 +610,7 @@
 		850FB2C7231D536100F3FD6B /* SearchSongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850FB2C5231D536100F3FD6B /* SearchSongTableViewCell.xib */; };
 		850FB2CA231DAC3A00F3FD6B /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FB2C9231DAC3A00F3FD6B /* DrawerTableViewController.swift */; };
 		8537615E23200ED7002F58D1 /* FavouriteSongPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537615D23200ED7002F58D1 /* FavouriteSongPageViewController.swift */; };
-		8537616023201B8E002F58D1 /* EmotyFavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537615F23201B8E002F58D1 /* EmotyFavouritesViewController.swift */; };
+		8537616023201B8E002F58D1 /* EmptyFavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537615F23201B8E002F58D1 /* EmptyFavouritesViewController.swift */; };
 		8537616323202F7E002F58D1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537616223202F7E002F58D1 /* SettingsTableViewController.swift */; };
 		853761652320376E002F58D1 /* UIColor+SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853761642320376E002F58D1 /* UIColor+SystemColors.swift */; };
 		85B33506231EF37500A497DB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B33505231EF37500A497DB /* Constants.swift */; };
@@ -1243,7 +1243,7 @@
 		850FB2C5231D536100F3FD6B /* SearchSongTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchSongTableViewCell.xib; sourceTree = "<group>"; };
 		850FB2C9231DAC3A00F3FD6B /* DrawerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
 		8537615D23200ED7002F58D1 /* FavouriteSongPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteSongPageViewController.swift; sourceTree = "<group>"; };
-		8537615F23201B8E002F58D1 /* EmotyFavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotyFavouritesViewController.swift; sourceTree = "<group>"; };
+		8537615F23201B8E002F58D1 /* EmptyFavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavouritesViewController.swift; sourceTree = "<group>"; };
 		8537616223202F7E002F58D1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		853761642320376E002F58D1 /* UIColor+SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+SystemColors.swift"; sourceTree = "<group>"; };
 		85B33505231EF37500A497DB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -1999,7 +1999,7 @@
 			isa = PBXGroup;
 			children = (
 				8537615D23200ED7002F58D1 /* FavouriteSongPageViewController.swift */,
-				8537615F23201B8E002F58D1 /* EmotyFavouritesViewController.swift */,
+				8537615F23201B8E002F58D1 /* EmptyFavouritesViewController.swift */,
 			);
 			path = FavouriteSongs;
 			sourceTree = "<group>";
@@ -2737,7 +2737,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8537616023201B8E002F58D1 /* EmotyFavouritesViewController.swift in Sources */,
+				8537616023201B8E002F58D1 /* EmptyFavouritesViewController.swift in Sources */,
 				850FB2B1231D29F900F3FD6B /* Song.swift in Sources */,
 				850FAE1F231C524500F3FD6B /* CenterNavigationController.swift in Sources */,
 				8537615E23200ED7002F58D1 /* FavouriteSongPageViewController.swift in Sources */,
@@ -2931,11 +2931,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4RSAW4A69;
 				INFOPLIST_FILE = HarcApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nylon.HarcApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nylon.Spiewnik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2949,11 +2950,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4RSAW4A69;
 				INFOPLIST_FILE = HarcApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nylon.HarcApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nylon.Spiewnik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
