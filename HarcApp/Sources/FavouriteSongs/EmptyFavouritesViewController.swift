@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmotyFavouritesViewController: UIViewController {
+class EmptyFavouritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
