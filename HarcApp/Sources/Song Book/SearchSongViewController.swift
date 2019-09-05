@@ -21,10 +21,10 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         let nib = UINib(nibName: searchCellId, bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: searchCellId)
+        tableView.register(nib, forCellReuseIdentifier: searchCellId)
         
         setupSearchController()
         setupKeyboardObservers()
@@ -60,7 +60,6 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
         let textFieldInsideUISearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideUISearchBar?.font = Constants.fonts.museo
         
-        // SearchBar placeholder
         let textFieldInsideUISearchBarLabel = textFieldInsideUISearchBar!.value(forKey: "placeholderLabel") as? UILabel
         textFieldInsideUISearchBarLabel?.font = Constants.fonts.museo
     }
@@ -77,8 +76,6 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
-        
         UIView.animate(withDuration: 0.1, animations: {
             self.tableViewBottomConstraint.constant = 0
         })
@@ -103,7 +100,10 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
     
     func filterContentSearchText(_ searchText: String, scope: String = "All") {
         filteredSongs = SongManager.shared().songs.filter({ (song: Song) -> Bool in
-            return song.title.lowercased().folding(options: .diacriticInsensitive, locale: .current).contains(searchText.lowercased().folding(options: .diacriticInsensitive, locale: .current))
+            let searchText = searchText.lowercased().folding(options: .diacriticInsensitive, locale: .current)
+            return song.title.lowercased().folding(options: .diacriticInsensitive, locale: .current).contains(searchText) ||
+                song.author?.lowercased().folding(options: .diacriticInsensitive, locale: .current).contains(searchText) ?? false ||
+                song.tagsAsString.lowercased().folding(options: .diacriticInsensitive, locale: .current).contains(searchText)
         })
         
         tableView.reloadData()

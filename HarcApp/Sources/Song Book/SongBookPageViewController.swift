@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SearchSongIndexDelegate {
+    func navigateToPage(index: Int)
+}
+
 class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate {
     
     var vcs: [UIViewController] = []
@@ -70,7 +74,7 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate 
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         for song in SongManager.shared().songs {
-            vcs.append(self.newSongViewController(song: song))
+            vcs.append(newSongViewController(song: song))
         }
         
         return vcs

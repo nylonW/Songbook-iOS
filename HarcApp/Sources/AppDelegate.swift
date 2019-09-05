@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: customFont!], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: customFont!.withSize(12)], for: .normal)
         UITextField.appearance().font = customFont
-        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Anuluj"
+
         if UserDefaults.standard.bool(forKey: "darkMode") {
             UITableView.appearance().backgroundColor = .black
             UITableViewCell.appearance().backgroundColor = Constants.Colors.darkSecondary

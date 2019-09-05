@@ -17,7 +17,6 @@ class SongViewController: UIViewController {
     @IBOutlet weak var performer: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var favouriteButtonWidth: NSLayoutConstraint!
-    @IBOutlet weak var separatorView: UIView!
     
     var constraint: NSLayoutConstraint?
     var song: Song?
@@ -29,6 +28,9 @@ class SongViewController: UIViewController {
     
     var scalledFont: CGFloat?
     var scalledChordsTextLabelWidth: CGFloat?
+    
+    let safeSpacing: CGFloat = 2
+    let fontStep: CGFloat = 0.6
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,19 +67,20 @@ class SongViewController: UIViewController {
             
             songText.layoutIfNeeded()
             
-            while lineWidth > self.songText.frame.size.width {
-                fontSize -= 0.6
+            while lineWidth + safeSpacing >= songText.frame.size.width {
+                fontSize -= fontStep
                     
-                self.songText.font = self.songText.font.withSize(fontSize)
-                self.chords.font = self.songText.font.withSize(fontSize)
-                self.songText.setNeedsLayout()
-                self.songText.layoutIfNeeded()
+                songText.font = songText.font.withSize(fontSize)
+                chords.font = songText.font.withSize(fontSize)
+                songText.setNeedsLayout()
+                songText.layoutIfNeeded()
                 
                 lineWidth = String(largestLine).widthOfString(usingFont: self.songText.font.withSize(fontSize))
             }
+            
             scalledFont = fontSize
-            scalledChordsTextLabelWidth = self.songText.frame.width
-            constraint = NSLayoutConstraint(item: self.chords!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 0)
+            scalledChordsTextLabelWidth = songText.frame.width
+            constraint = NSLayoutConstraint(item: chords!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 0)
             
             if favouriteSongs.contains(song.fileName) {
                 isFavourite = true
@@ -99,16 +102,14 @@ class SongViewController: UIViewController {
         guard let constraint = constraint else { return }
         
         if showChords {
-            self.chords.isHidden = false
-            self.separatorView.isHidden = false
+            chords.isHidden = false
             NSLayoutConstraint.deactivate([constraint])
-            self.chords.layoutIfNeeded()
-            self.songText.font = self.songText.font.withSize(scalledFont ?? 17)
+            chords.layoutIfNeeded()
+            songText.font = songText.font.withSize(scalledFont ?? 17)
         } else {
-            self.chords.isHidden = true
-            self.separatorView.isHidden = true
+            chords.isHidden = true
             NSLayoutConstraint.activate([constraint])
-            self.songText.font = self.songText.font.withSize(17)
+            songText.font = songText.font.withSize(17)
         }
     }
     
