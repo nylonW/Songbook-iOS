@@ -12,11 +12,14 @@ protocol SearchSongIndexDelegate {
     func navigateToPage(index: Int)
 }
 
-class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate {
+class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate, UIPopoverPresentationControllerDelegate {
     
     var vcs: [UIViewController] = []
     let songStoryboard = UIStoryboard(name: "SongBook", bundle: nil)
     var isDarkMode = false
+    var fastSettingsButton: UIBarButtonItem!
+    
+    var currentSong: Song?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,9 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate 
         
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped)), settings]
         
+        fastSettingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "first"), style: .plain, target: self, action: #selector(quickSettings))
+        self.navigationItem.leftBarButtonItem = fastSettingsButton
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +58,31 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate 
         } else {
             self.view.backgroundColor = .white
         }
+    }
+    
+    @objc func quickSettings() {
+        let popupStoryboard = UIStoryboard(name: "Popup", bundle: nil)
+        let popupVC = popupStoryboard.instantiateViewController(withIdentifier: "PopupViewController") as! PopupViewController
+        let leftButtonView = fastSettingsButton.value(forKey: "view") as? UIView
+        
+        //popupVC.popoverPresentationController!.delegate = self
+        popupVC.modalPresentationStyle = UIModalPresentationStyle.popover
+        if isDarkMode {
+            popupVC.popoverPresentationController?.backgroundColor = Constants.Colors.darkSecondary
+        }
+        popupVC.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popupVC.popoverPresentationController?.delegate = self
+        popupVC.popoverPresentationController?.sourceView = leftButtonView
+        popupVC.popoverPresentationController?.sourceRect = leftButtonView!.bounds
+        popupVC.preferredContentSize = CGSize(width: view.frame.size.width - 20, height: (view.frame.size.width * 0.75) / 2)
+        popupVC.song = (self.viewControllers?.first as! SongViewController).song
+        
+        self.present(popupVC, animated: true, completion: nil)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        
+        return UIModalPresentationStyle.none
     }
     
     @objc func showSettings() {
@@ -100,7 +131,6 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate 
         controller.setDarkMode()
         controller.setShowChords()
     }
-    
 }
 
 extension SongBookPageViewController: UIPageViewControllerDataSource {

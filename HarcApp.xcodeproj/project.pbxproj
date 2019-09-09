@@ -609,6 +609,8 @@
 		8537616023201B8E002F58D1 /* EmptyFavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537615F23201B8E002F58D1 /* EmptyFavouritesViewController.swift */; };
 		8537616323202F7E002F58D1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537616223202F7E002F58D1 /* SettingsTableViewController.swift */; };
 		853761652320376E002F58D1 /* UIColor+SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853761642320376E002F58D1 /* UIColor+SystemColors.swift */; };
+		856BE34A2326EF6900D46941 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 856BE3492326EF6900D46941 /* Popup.storyboard */; };
+		856BE34C2326F35D00D46941 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BE34B2326F35D00D46941 /* PopupViewController.swift */; };
 		85B33506231EF37500A497DB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B33505231EF37500A497DB /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -1238,6 +1240,8 @@
 		8537615F23201B8E002F58D1 /* EmptyFavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavouritesViewController.swift; sourceTree = "<group>"; };
 		8537616223202F7E002F58D1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		853761642320376E002F58D1 /* UIColor+SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+SystemColors.swift"; sourceTree = "<group>"; };
+		856BE3492326EF6900D46941 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		856BE34B2326F35D00D46941 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		85B33505231EF37500A497DB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1988,6 +1992,8 @@
 			isa = PBXGroup;
 			children = (
 				8537616223202F7E002F58D1 /* SettingsTableViewController.swift */,
+				856BE3492326EF6900D46941 /* Popup.storyboard */,
+				856BE34B2326F35D00D46941 /* PopupViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2173,6 +2179,7 @@
 				850FB1F6231D292700F3FD6B /* pierwsza_kadrowa in Resources */,
 				850FB188231D292700F3FD6B /* lecace_bociany in Resources */,
 				850FB20E231D292700F3FD6B /* sponad_kufla_piwa in Resources */,
+				856BE34A2326EF6900D46941 /* Popup.storyboard in Resources */,
 				850FB157231D292700F3FD6B /* jezior_blekit in Resources */,
 				850FB19F231D292700F3FD6B /* jesienne_wino in Resources */,
 				850FB17F231D292700F3FD6B /* dotknij_panie_moich_oczu in Resources */,
@@ -2730,6 +2737,7 @@
 				850FB2B4231D332500F3FD6B /* SongManager.swift in Sources */,
 				850FAE24231C69F000F3FD6B /* SongBookPageViewController.swift in Sources */,
 				850FB2C2231D4F2A00F3FD6B /* SearchSongViewController.swift in Sources */,
+				856BE34C2326F35D00D46941 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

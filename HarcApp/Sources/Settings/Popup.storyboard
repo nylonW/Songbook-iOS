@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ur1-RE-Pec">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Museo500-Regular.otf">
+            <string>Museo-500</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Popup View Controller-->
+        <scene sceneID="pAT-vB-Hpf">
+            <objects>
+                <viewController storyboardIdentifier="PopupViewController" id="Ur1-RE-Pec" customClass="PopupViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J8R-hc-sYV">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xeM-PQ-rin">
+                                <rect key="frame" x="36" y="12" width="118" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="P38-Uw-pfI"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="Ur1-RE-Pec" eventType="valueChanged" id="rkQ-9b-cWu"/>
+                                </connections>
+                            </slider>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="IvB-UC-bVx">
+                                <rect key="frame" x="160" y="12" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="wTZ-PT-9RI"/>
+                                    <constraint firstAttribute="width" constant="30" id="zik-Dn-sAT"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="waL-3Z-yRd">
+                                <rect key="frame" x="10" y="17" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="G2p-YZ-igO"/>
+                                    <constraint firstAttribute="height" constant="20" id="hNB-Su-pfy"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="FoZ-6F-GJs">
+                                <rect key="frame" x="10" y="50" width="180" height="42"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8S-xV-GFE">
+                                        <rect key="frame" x="0.0" y="0.0" width="84.666666666666671" height="42"/>
+                                        <fontDescription key="fontDescription" name="Museo-500" family="Museo" pointSize="17"/>
+                                        <state key="normal" title="Kopiuj tekst"/>
+                                        <connections>
+                                            <action selector="copyTapped:" destination="Ur1-RE-Pec" eventType="touchUpInside" id="400-wg-FYX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGw-OD-qlj">
+                                        <rect key="frame" x="95.666666666666686" y="0.0" width="84.333333333333314" height="42"/>
+                                        <state key="normal" image="yticon"/>
+                                        <connections>
+                                            <action selector="ytTapped:" destination="Ur1-RE-Pec" eventType="touchUpInside" id="1PU-1K-cjk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="b8S-xV-GFE" firstAttribute="width" secondItem="iGw-OD-qlj" secondAttribute="width" id="jqm-nd-tGe"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xeM-PQ-rin" firstAttribute="top" secondItem="hKf-uq-YVn" secondAttribute="top" constant="12" id="3ZP-kZ-yx3"/>
+                            <constraint firstItem="waL-3Z-yRd" firstAttribute="centerY" secondItem="IvB-UC-bVx" secondAttribute="centerY" id="6u5-rT-EA5"/>
+                            <constraint firstItem="waL-3Z-yRd" firstAttribute="leading" secondItem="hKf-uq-YVn" secondAttribute="leading" constant="10" id="BoI-8p-aY0"/>
+                            <constraint firstItem="IvB-UC-bVx" firstAttribute="bottom" secondItem="xeM-PQ-rin" secondAttribute="bottom" id="POS-h5-hWs"/>
+                            <constraint firstItem="IvB-UC-bVx" firstAttribute="leading" secondItem="xeM-PQ-rin" secondAttribute="trailing" constant="8" id="Up8-hM-Rzq"/>
+                            <constraint firstItem="FoZ-6F-GJs" firstAttribute="leading" secondItem="hKf-uq-YVn" secondAttribute="leading" constant="10" id="ft3-Te-I3b"/>
+                            <constraint firstItem="xeM-PQ-rin" firstAttribute="leading" secondItem="waL-3Z-yRd" secondAttribute="trailing" constant="8" id="jvb-0P-KHB"/>
+                            <constraint firstItem="hKf-uq-YVn" firstAttribute="trailing" secondItem="FoZ-6F-GJs" secondAttribute="trailing" constant="10" id="kaT-ru-AV3"/>
+                            <constraint firstItem="hKf-uq-YVn" firstAttribute="trailing" secondItem="IvB-UC-bVx" secondAttribute="trailing" constant="10" id="pdG-Hh-3Oa"/>
+                            <constraint firstItem="hKf-uq-YVn" firstAttribute="bottom" secondItem="FoZ-6F-GJs" secondAttribute="bottom" constant="8" id="xMT-3p-XVj"/>
+                            <constraint firstItem="FoZ-6F-GJs" firstAttribute="top" secondItem="xeM-PQ-rin" secondAttribute="bottom" constant="8" id="ybo-fp-bRi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hKf-uq-YVn"/>
+                    </view>
+                    <size key="freeformSize" width="200" height="100"/>
+                    <connections>
+                        <outlet property="brightnessSlider" destination="xeM-PQ-rin" id="WWQ-DR-qSj"/>
+                        <outlet property="copyButton" destination="b8S-xV-GFE" id="xb0-Xv-qSx"/>
+                        <outlet property="largeSunImage" destination="IvB-UC-bVx" id="SL6-y0-WF7"/>
+                        <outlet property="smallSunImage" destination="waL-3Z-yRd" id="Yow-WZ-Sqz"/>
+                        <outlet property="ytButton" destination="iGw-OD-qlj" id="C2n-a3-XKw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUd-2i-sXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="385.50724637681162" y="128.80434782608697"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="sun" width="50" height="50"/>
+        <image name="yticon" width="512" height="512"/>
+    </resources>
+</document>
