@@ -1,3 +1,3 @@
-# HarcApp
+# Śpiewnik harcerski
 
-HarcApp for iOS devices, mostly designed as a song book
+Scout song book app written in Swift. 
