@@ -13,7 +13,6 @@
 		850FADFB231C4D4200F3FD6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FADF9231C4D4200F3FD6B /* LaunchScreen.storyboard */; };
 		850FAE06231C4D4200F3FD6B /* HarcAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FAE05231C4D4200F3FD6B /* HarcAppTests.swift */; };
 		850FAE11231C4D4200F3FD6B /* HarcAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FAE10231C4D4200F3FD6B /* HarcAppUITests.swift */; };
-		850FAE21231C695200F3FD6B /* SongBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FAE20231C695200F3FD6B /* SongBook.storyboard */; };
 		850FAE24231C69F000F3FD6B /* SongBookPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FAE23231C69F000F3FD6B /* SongBookPageViewController.swift */; };
 		850FAE26231C6A4900F3FD6B /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FAE25231C6A4900F3FD6B /* SongViewController.swift */; };
 		850FB06C231D292700F3FD6B /* przezyj_to_sam in Resources */ = {isa = PBXBuildFile; fileRef = 850FAE29231D28F400F3FD6B /* przezyj_to_sam */; };
@@ -605,6 +604,12 @@
 		850FB2C2231D4F2A00F3FD6B /* SearchSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FB2C1231D4F2A00F3FD6B /* SearchSongViewController.swift */; };
 		850FB2C6231D536100F3FD6B /* SearchSongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FB2C4231D536100F3FD6B /* SearchSongTableViewCell.swift */; };
 		850FB2C7231D536100F3FD6B /* SearchSongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850FB2C5231D536100F3FD6B /* SearchSongTableViewCell.xib */; };
+		85347286232A2C15002B235D /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85347284232A2C15002B235D /* TagCollectionViewCell.swift */; };
+		85347287232A2C15002B235D /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85347285232A2C15002B235D /* TagCollectionViewCell.xib */; };
+		8534728E232A661A002B235D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8534728C232A661A002B235D /* Localizable.strings */; };
+		85347291232A698B002B235D /* SongBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85347293232A698B002B235D /* SongBook.storyboard */; };
+		85347299232A70A5002B235D /* ManageFavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85347298232A70A5002B235D /* ManageFavouritesViewController.swift */; };
+		8534729A232A8D78002B235D /* ManageFavourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8534729C232A8D78002B235D /* ManageFavourites.storyboard */; };
 		8537615E23200ED7002F58D1 /* FavouriteSongPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537615D23200ED7002F58D1 /* FavouriteSongPageViewController.swift */; };
 		8537616023201B8E002F58D1 /* EmptyFavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537615F23201B8E002F58D1 /* EmptyFavouritesViewController.swift */; };
 		8537616323202F7E002F58D1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537616223202F7E002F58D1 /* SettingsTableViewController.swift */; };
@@ -644,7 +649,6 @@
 		850FAE0C231C4D4200F3FD6B /* HarcAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarcAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FAE10231C4D4200F3FD6B /* HarcAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarcAppUITests.swift; sourceTree = "<group>"; };
 		850FAE12231C4D4200F3FD6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		850FAE20231C695200F3FD6B /* SongBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SongBook.storyboard; sourceTree = "<group>"; };
 		850FAE23231C69F000F3FD6B /* SongBookPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBookPageViewController.swift; sourceTree = "<group>"; };
 		850FAE25231C6A4900F3FD6B /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		850FAE29231D28F400F3FD6B /* przezyj_to_sam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = przezyj_to_sam; sourceTree = "<group>"; };
@@ -1236,6 +1240,17 @@
 		850FB2C1231D4F2A00F3FD6B /* SearchSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongViewController.swift; sourceTree = "<group>"; };
 		850FB2C4231D536100F3FD6B /* SearchSongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongTableViewCell.swift; sourceTree = "<group>"; };
 		850FB2C5231D536100F3FD6B /* SearchSongTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchSongTableViewCell.xib; sourceTree = "<group>"; };
+		85347284232A2C15002B235D /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		85347285232A2C15002B235D /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
+		85347288232A654C002B235D /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/Main.strings"; sourceTree = "<group>"; };
+		85347289232A654C002B235D /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		8534728D232A661A002B235D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8534728F232A6625002B235D /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		85347292232A698B002B235D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SongBook.storyboard; sourceTree = "<group>"; };
+		85347295232A6998002B235D /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/SongBook.strings"; sourceTree = "<group>"; };
+		85347298232A70A5002B235D /* ManageFavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFavouritesViewController.swift; sourceTree = "<group>"; };
+		8534729B232A8D78002B235D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ManageFavourites.storyboard; sourceTree = "<group>"; };
+		8534729E232A8D7C002B235D /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/ManageFavourites.strings"; sourceTree = "<group>"; };
 		8537615D23200ED7002F58D1 /* FavouriteSongPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteSongPageViewController.swift; sourceTree = "<group>"; };
 		8537615F23201B8E002F58D1 /* EmptyFavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavouritesViewController.swift; sourceTree = "<group>"; };
 		8537616223202F7E002F58D1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -1293,6 +1308,7 @@
 		850FADED231C4D4000F3FD6B /* HarcApp */ = {
 			isa = PBXGroup;
 			children = (
+				8534728C232A661A002B235D /* Localizable.strings */,
 				850FB2B5231D38D000F3FD6B /* Fonts */,
 				850FAE28231D284800F3FD6B /* Sources */,
 				850FAE27231D283A00F3FD6B /* Songs */,
@@ -1326,7 +1342,7 @@
 			children = (
 				850FB2C3231D534300F3FD6B /* Cells */,
 				850FAE23231C69F000F3FD6B /* SongBookPageViewController.swift */,
-				850FAE20231C695200F3FD6B /* SongBook.storyboard */,
+				85347293232A698B002B235D /* SongBook.storyboard */,
 				850FAE25231C6A4900F3FD6B /* SongViewController.swift */,
 				850FB2C1231D4F2A00F3FD6B /* SearchSongViewController.swift */,
 			);
@@ -1975,6 +1991,8 @@
 			children = (
 				850FB2C4231D536100F3FD6B /* SearchSongTableViewCell.swift */,
 				850FB2C5231D536100F3FD6B /* SearchSongTableViewCell.xib */,
+				85347284232A2C15002B235D /* TagCollectionViewCell.swift */,
+				85347285232A2C15002B235D /* TagCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1984,6 +2002,8 @@
 			children = (
 				8537615D23200ED7002F58D1 /* FavouriteSongPageViewController.swift */,
 				8537615F23201B8E002F58D1 /* EmptyFavouritesViewController.swift */,
+				8534729C232A8D78002B235D /* ManageFavourites.storyboard */,
+				85347298232A70A5002B235D /* ManageFavouritesViewController.swift */,
 			);
 			path = FavouriteSongs;
 			sourceTree = "<group>";
@@ -2093,6 +2113,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pl-PL",
 			);
 			mainGroup = 850FADE2231C4D4000F3FD6B;
 			productRefGroup = 850FADEC231C4D4000F3FD6B /* Products */;
@@ -2220,6 +2241,7 @@
 				850FB212231D292700F3FD6B /* niepokoj in Resources */,
 				850FB208231D292700F3FD6B /* pierwsza in Resources */,
 				850FB218231D292700F3FD6B /* do_chorych in Resources */,
+				8534728E232A661A002B235D /* Localizable.strings in Resources */,
 				850FB1FB231D292700F3FD6B /* pamiatka_ze_splywu in Resources */,
 				850FB11F231D292700F3FD6B /* hallelujah in Resources */,
 				850FB293231D292700F3FD6B /* wieza_spadochronowa in Resources */,
@@ -2463,6 +2485,7 @@
 				850FB097231D292700F3FD6B /* w_zlobie_lezy in Resources */,
 				850FB114231D292700F3FD6B /* statek_pila_tango in Resources */,
 				850FB089231D292700F3FD6B /* imperatyw in Resources */,
+				8534729A232A8D78002B235D /* ManageFavourites.storyboard in Resources */,
 				850FB129231D292700F3FD6B /* wyspa in Resources */,
 				850FB1BC231D292700F3FD6B /* kadryl in Resources */,
 				850FB150231D292700F3FD6B /* buki in Resources */,
@@ -2638,6 +2661,7 @@
 				850FB17E231D292700F3FD6B /* ofiaruje_tobie_panie_moj in Resources */,
 				850FB209231D292700F3FD6B /* wszystko_ma_swoj_czas in Resources */,
 				850FB29B231D292700F3FD6B /* moj_jest_ten_kawalek_podlogi in Resources */,
+				85347287232A2C15002B235D /* TagCollectionViewCell.xib in Resources */,
 				850FB249231D292700F3FD6B /* sanctus in Resources */,
 				850FB22F231D292700F3FD6B /* ciagnik in Resources */,
 				850FB1E7231D292700F3FD6B /* samantha in Resources */,
@@ -2698,7 +2722,7 @@
 				850FB25C231D292700F3FD6B /* jestes_krolem in Resources */,
 				850FB1F1231D292700F3FD6B /* z_miloscia in Resources */,
 				850FB06F231D292700F3FD6B /* hiszpanskie_dziewczyny in Resources */,
-				850FAE21231C695200F3FD6B /* SongBook.storyboard in Resources */,
+				85347291232A698B002B235D /* SongBook.storyboard in Resources */,
 				850FB0D5231D292700F3FD6B /* wedrujemy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2725,6 +2749,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8537616023201B8E002F58D1 /* EmptyFavouritesViewController.swift in Sources */,
+				85347299232A70A5002B235D /* ManageFavouritesViewController.swift in Sources */,
 				850FB2B1231D29F900F3FD6B /* Song.swift in Sources */,
 				8537615E23200ED7002F58D1 /* FavouriteSongPageViewController.swift in Sources */,
 				853761652320376E002F58D1 /* UIColor+SystemColors.swift in Sources */,
@@ -2736,6 +2761,7 @@
 				8537616323202F7E002F58D1 /* SettingsTableViewController.swift in Sources */,
 				850FB2B4231D332500F3FD6B /* SongManager.swift in Sources */,
 				850FAE24231C69F000F3FD6B /* SongBookPageViewController.swift in Sources */,
+				85347286232A2C15002B235D /* TagCollectionViewCell.swift in Sources */,
 				850FB2C2231D4F2A00F3FD6B /* SearchSongViewController.swift in Sources */,
 				856BE34C2326F35D00D46941 /* PopupViewController.swift in Sources */,
 			);
@@ -2777,6 +2803,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				850FADF5231C4D4000F3FD6B /* Base */,
+				85347288232A654C002B235D /* pl-PL */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2785,8 +2812,36 @@
 			isa = PBXVariantGroup;
 			children = (
 				850FADFA231C4D4200F3FD6B /* Base */,
+				85347289232A654C002B235D /* pl-PL */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8534728C232A661A002B235D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8534728D232A661A002B235D /* Base */,
+				8534728F232A6625002B235D /* pl-PL */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		85347293232A698B002B235D /* SongBook.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85347292232A698B002B235D /* Base */,
+				85347295232A6998002B235D /* pl-PL */,
+			);
+			name = SongBook.storyboard;
+			sourceTree = "<group>";
+		};
+		8534729C232A8D78002B235D /* ManageFavourites.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8534729B232A8D78002B235D /* Base */,
+				8534729E232A8D7C002B235D /* pl-PL */,
+			);
+			name = ManageFavourites.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2796,6 +2851,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2857,6 +2913,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

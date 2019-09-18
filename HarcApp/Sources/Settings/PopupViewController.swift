@@ -21,6 +21,9 @@ class PopupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        localizeStrings()
+        
         isDarkMode = UserDefaults.standard.bool(forKey: "darkMode")
         
         if isDarkMode {
@@ -35,6 +38,10 @@ class PopupViewController: UIViewController {
         brightnessSlider.value = Float(UIScreen.main.brightness)
     }
     
+    func localizeStrings() {
+        copyButton.setTitle(NSLocalizedString("copy_text", comment: ""), for: .normal)
+    }
+    
     @IBAction func sliderChanged(_ sender: UISlider) {
         UIScreen.main.brightness = CGFloat(sender.value)
     }
@@ -42,7 +49,7 @@ class PopupViewController: UIViewController {
     @IBAction func copyTapped(_ sender: UIButton) {
         if let song = song {
             UIPasteboard.general.string = song.songText
-            sender.setTitle("Skopiowano!", for: .normal)
+            sender.setTitle(NSLocalizedString("copied", comment: ""), for: .normal)
         }
     }
     

@@ -14,6 +14,7 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
     var delegate: SearchSongIndexDelegate?
     var searchController: UISearchController!
     var filteredSongs: [Song] = []
+    var text: String?
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
@@ -26,12 +27,14 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
         let nib = UINib(nibName: searchCellId, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: searchCellId)
         
+        filteredSongs = SongManager.shared().songs
+        
         setupSearchController()
         setupKeyboardObservers()
         
-        let doneButton = UIBarButtonItem(title: "Gotowe", style: .done, target: self, action: #selector(done))
+        let doneButton = UIBarButtonItem(title: NSLocalizedString("common_done", comment: ""), style: .done, target: self, action: #selector(done))
         navigationItem.rightBarButtonItem = doneButton
-        filteredSongs = SongManager.shared().songs
+        
         
         
     }
@@ -62,6 +65,8 @@ class SearchSongViewController: UIViewController, UISearchResultsUpdating, UITab
         
         let textFieldInsideUISearchBarLabel = textFieldInsideUISearchBar!.value(forKey: "placeholderLabel") as? UILabel
         textFieldInsideUISearchBarLabel?.font = Constants.fonts.museo
+        
+        searchController.searchBar.text = text ?? ""
     }
     
 

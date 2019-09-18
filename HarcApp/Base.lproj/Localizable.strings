@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  HarcApp
+
+  Created by Marcin Slusarek on 12/09/2019.
+  Copyright © 2019 Marcin Slusarek. All rights reserved.
+*/
+"songbook" = "Song Book";
+"favourites" = "Favourites";
+"copy_text" = "Copy text";
+"copied" = "Copied!";
+"settings_dark_mode" = "Dark mode";
+"settings_clear_favourites" = "Clear favourites";
+"settings_show_chords" = "Show chords";
+"settings_title" = "Settings";
+"settings_clear" = "Clear";
+"settings_cancel" = "Cancel";
+"settings_clear_desc" = "Are you sure you want to clear favourites?";
+"common_done" = "Done";
+"search_song" = "Search song";
+"song_author" = "Author";
+"song_performer" = "Performer";
+"fav_manage" = "Manage";
+"fav_manage_title" = "Manage favourites";
+

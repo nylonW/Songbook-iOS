@@ -12,7 +12,7 @@ protocol SearchSongIndexDelegate {
     func navigateToPage(index: Int)
 }
 
-class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate, UIPopoverPresentationControllerDelegate {
+class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate, UIPopoverPresentationControllerDelegate, PresentSearchControllerDelegate {
     
     var vcs: [UIViewController] = []
     let songStoryboard = UIStoryboard(name: "SongBook", bundle: nil)
@@ -36,14 +36,14 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate,
         //goToPage(index: 90)
         self.view.backgroundColor = .white
         
-        self.title = "Śpiewnik"
+        self.title = NSLocalizedString("songbook", comment: "")
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Museo", size: 20)!]
         
         let settings = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-settings-50.png"), style: .plain, target: self, action: #selector(showSettings))
         
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped)), settings]
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTappedPlain)), settings]
         
-        fastSettingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "first"), style: .plain, target: self, action: #selector(quickSettings))
+        fastSettingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "moreicon"), style: .plain, target: self, action: #selector(quickSettings))
         self.navigationItem.leftBarButtonItem = fastSettingsButton
         
     }
@@ -65,7 +65,6 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate,
         let popupVC = popupStoryboard.instantiateViewController(withIdentifier: "PopupViewController") as! PopupViewController
         let leftButtonView = fastSettingsButton.value(forKey: "view") as? UIView
         
-        //popupVC.popoverPresentationController!.delegate = self
         popupVC.modalPresentationStyle = UIModalPresentationStyle.popover
         if isDarkMode {
             popupVC.popoverPresentationController?.backgroundColor = Constants.Colors.darkSecondary
@@ -90,13 +89,27 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate,
         self.navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
-    @objc func searchTapped() {
+    @objc func searchTapped(text: String?) {
+        let searchSong = songStoryboard.instantiateViewController(withIdentifier: "searchSongViewController") as! SearchSongViewController
+        searchSong.delegate = self
+        searchSong.text = text
+        
+        let wrapper = UINavigationController(rootViewController: searchSong)
+        
+        present(wrapper, animated: true, completion: nil)
+    }
+    
+    @objc func searchTappedPlain() {
         let searchSong = songStoryboard.instantiateViewController(withIdentifier: "searchSongViewController") as! SearchSongViewController
         searchSong.delegate = self
         
         let wrapper = UINavigationController(rootViewController: searchSong)
         
         present(wrapper, animated: true, completion: nil)
+    }
+    
+    func presentSearchController(withText: String) {
+        searchTapped(text: withText)
     }
     
     func navigateToPage(index: Int) {
@@ -114,6 +127,8 @@ class SongBookPageViewController: UIPageViewController, SearchSongIndexDelegate,
     private func newSongViewController(song: Song) -> UIViewController {
         let songViewController = UIStoryboard(name: "SongBook", bundle: nil).instantiateViewController(withIdentifier: "SongViewController") as! SongViewController
         songViewController.song = song
+        songViewController.delegate = self
+        
         return songViewController
     }
     

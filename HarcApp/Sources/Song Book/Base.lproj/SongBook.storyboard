@@ -18,11 +18,11 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Item-->
+        <!--Song Book-->
         <scene sceneID="9WX-c7-Sxa">
             <objects>
                 <pageViewController storyboardIdentifier="SongBookPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="i1x-N4-jhG" customClass="SongBookPageViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ouj-bh-Fl0"/>
+                    <tabBarItem key="tabBarItem" title="Song Book" id="ouj-bh-Fl0"/>
                     <navigationItem key="navigationItem" id="3uC-Fm-dBn"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIX-pe-g9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -81,16 +81,33 @@
                                             <action selector="favouriteButtonTapped:" destination="ZS2-Ny-GQY" eventType="touchUpInside" id="EVf-PA-gTv"/>
                                         </connections>
                                     </button>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E8Z-nf-ahC">
+                                        <rect key="frame" x="8" y="154.5" width="398" height="64"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="beA-ny-G26"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="37I-5z-irC">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="afk-VZ-nK8" firstAttribute="leading" secondItem="wOl-9T-JCj" secondAttribute="trailing" id="0ss-LR-uqf"/>
+                                    <constraint firstItem="E8Z-nf-ahC" firstAttribute="top" secondItem="wOl-9T-JCj" secondAttribute="bottom" constant="16" id="5NN-ev-EkJ"/>
                                     <constraint firstItem="qAW-OP-BJt" firstAttribute="leading" secondItem="Y6f-fh-H6b" secondAttribute="leading" constant="20" id="8Pv-UM-gvK"/>
+                                    <constraint firstItem="E8Z-nf-ahC" firstAttribute="leading" secondItem="Y6f-fh-H6b" secondAttribute="leading" constant="8" id="H5f-EU-T5Y"/>
                                     <constraint firstItem="wOl-9T-JCj" firstAttribute="top" secondItem="g71-fx-w9s" secondAttribute="bottom" constant="16" id="IK9-ch-9E2"/>
                                     <constraint firstItem="qAW-OP-BJt" firstAttribute="top" secondItem="Y6f-fh-H6b" secondAttribute="topMargin" id="Sxk-uk-BUR"/>
+                                    <constraint firstAttribute="trailing" secondItem="E8Z-nf-ahC" secondAttribute="trailing" constant="8" id="TIy-df-Ezw"/>
                                     <constraint firstAttribute="trailing" secondItem="afk-VZ-nK8" secondAttribute="trailing" constant="8" id="USz-5p-9fj"/>
-                                    <constraint firstAttribute="bottom" secondItem="afk-VZ-nK8" secondAttribute="bottom" constant="20" id="Uww-lE-vZc"/>
                                     <constraint firstAttribute="trailing" secondItem="1A0-DY-Ab3" secondAttribute="trailing" constant="20" id="V9j-Zn-eCG"/>
                                     <constraint firstItem="1A0-DY-Ab3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DA2-y2-aMb" secondAttribute="trailing" constant="4" id="XzA-yy-SXd"/>
+                                    <constraint firstAttribute="bottom" secondItem="E8Z-nf-ahC" secondAttribute="bottom" constant="8" id="ZN8-d7-eym"/>
                                     <constraint firstItem="1A0-DY-Ab3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g71-fx-w9s" secondAttribute="trailing" constant="4" id="cBc-xH-xof"/>
                                     <constraint firstItem="g71-fx-w9s" firstAttribute="leading" secondItem="Y6f-fh-H6b" secondAttribute="leading" constant="20" id="fgc-6H-fBw"/>
                                     <constraint firstItem="wOl-9T-JCj" firstAttribute="leading" secondItem="Y6f-fh-H6b" secondAttribute="leading" constant="8" id="jBS-G8-8JB"/>
@@ -118,6 +135,7 @@
                     <connections>
                         <outlet property="author" destination="DA2-y2-aMb" id="hv7-HY-jlT"/>
                         <outlet property="chords" destination="afk-VZ-nK8" id="NIi-7x-N23"/>
+                        <outlet property="collectionView" destination="E8Z-nf-ahC" id="HYB-eB-AIJ"/>
                         <outlet property="favouriteButton" destination="1A0-DY-Ab3" id="MIc-vr-fbe"/>
                         <outlet property="favouriteButtonWidth" destination="wjQ-tn-zxr" id="rWB-xh-zvk"/>
                         <outlet property="name" destination="qAW-OP-BJt" id="yNU-bR-7gP"/>
@@ -170,11 +188,11 @@
             </objects>
             <point key="canvasLocation" x="506" y="1166"/>
         </scene>
-        <!--Ulubione-->
+        <!--Favourites-->
         <scene sceneID="G9F-L7-vn9">
             <objects>
-                <navigationController title="Ulubione" id="fHE-EM-xTe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ulubione" image="icons8-heart-50-filled" id="j4z-wv-LR4"/>
+                <navigationController title="Favourites" id="fHE-EM-xTe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favourites" image="icons8-heart-50-filled" id="j4z-wv-LR4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oML-Ow-BtM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -187,11 +205,11 @@
             </objects>
             <point key="canvasLocation" x="506" y="443"/>
         </scene>
-        <!--Ulubione-->
+        <!--Favourites-->
         <scene sceneID="Kco-NN-sW1">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" title="Ulubione" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="AeM-19-XzW" customClass="FavouriteSongPageViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Ulubione" id="NYR-SB-0fe"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="Favourites" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="AeM-19-XzW" customClass="FavouriteSongPageViewController" customModule="HarcApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Favourites" id="NYR-SB-0fe"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WsD-Ct-4gr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,8 +223,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dodaj piosenki do ulubionych, aby mieć do nich szybki dostęp." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4V-hc-4TW">
-                                <rect key="frame" x="20" y="432.5" width="374" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add songs to your favorites for quick access." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4V-hc-4TW">
+                                <rect key="frame" x="20" y="443" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Museo-500" family="Museo" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -237,7 +255,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Ustawienia" id="Pia-mq-ahD">
+                            <tableViewSection headerTitle="Settings" id="Pia-mq-ahD">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="d4e-Up-6WZ">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
@@ -246,8 +264,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tryb ciemny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVb-dU-tEa">
-                                                    <rect key="frame" x="20" y="11.5" width="100" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVb-dU-tEa">
+                                                    <rect key="frame" x="20" y="11.5" width="87.5" height="21"/>
                                                     <fontDescription key="fontDescription" name="Museo-500" family="Museo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -274,8 +292,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wyczyść ulubione" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahC-Ce-G5L">
-                                                    <rect key="frame" x="20" y="11.5" width="145" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear favourites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahC-Ce-G5L">
+                                                    <rect key="frame" x="20" y="11.5" width="125" height="21"/>
                                                     <fontDescription key="fontDescription" name="Museo-500" family="Museo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -294,8 +312,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokazuj chwyty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-BE-WLe">
-                                                    <rect key="frame" x="20" y="11.5" width="125" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show chords" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-BE-WLe">
+                                                    <rect key="frame" x="20" y="11.5" width="103.5" height="21"/>
                                                     <fontDescription key="fontDescription" name="Museo-500" family="Museo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -367,11 +385,11 @@
             </objects>
             <point key="canvasLocation" x="-241" y="-287"/>
         </scene>
-        <!--Śpiewnik-->
+        <!--Song Book-->
         <scene sceneID="Km2-aZ-YXL">
             <objects>
                 <navigationController id="Xxo-KE-Tjp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Śpiewnik" image="5015296531548336228" id="1UJ-Zn-sau"/>
+                    <tabBarItem key="tabBarItem" title="Song Book" image="5015296531548336228" id="1UJ-Zn-sau"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ule-JL-OpD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

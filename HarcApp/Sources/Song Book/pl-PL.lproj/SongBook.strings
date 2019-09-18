@@ -1,0 +1,51 @@
+
+/* Class = "UITabBarItem"; title = "Śpiewnik"; ObjectID = "1UJ-Zn-sau"; */
+"1UJ-Zn-sau.title" = "Śpiewnik";
+
+/* Class = "UIPageViewController"; title = "Ulubione"; ObjectID = "AeM-19-XzW"; */
+"AeM-19-XzW.title" = "Ulubione";
+
+/* Class = "UILabel"; text = "Tryb ciemny"; ObjectID = "BVb-dU-tEa"; */
+"BVb-dU-tEa.text" = "Tryb ciemny";
+
+/* Class = "UILabel"; text = "Autor słów:"; ObjectID = "DA2-y2-aMb"; */
+"DA2-y2-aMb.text" = "Autor słów:";
+
+/* Class = "UILabel"; text = "Dodaj piosenki do ulubionych, aby mieć do nich szybki dostęp."; ObjectID = "L4V-hc-4TW"; */
+"L4V-hc-4TW.text" = "Dodaj piosenki do ulubionych, aby mieć do nich szybki dostęp.";
+
+/* Class = "UINavigationItem"; title = "Ulubione"; ObjectID = "NYR-SB-0fe"; */
+"NYR-SB-0fe.title" = "Ulubione";
+
+/* Class = "UITableViewSection"; headerTitle = "Ustawienia"; ObjectID = "Pia-mq-ahD"; */
+"Pia-mq-ahD.headerTitle" = "Ustawienia";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "YZv-6j-rY3"; */
+"YZv-6j-rY3.title" = "Item";
+
+/* Class = "UILabel"; text = "Pokazuj chwyty"; ObjectID = "ZpA-BE-WLe"; */
+"ZpA-BE-WLe.text" = "Pokazuj chwyty";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "afk-VZ-nK8"; */
+"afk-VZ-nK8.text" = "Label";
+
+/* Class = "UILabel"; text = "Wyczyść ulubione"; ObjectID = "ahC-Ce-G5L"; */
+"ahC-Ce-G5L.text" = "Wyczyść ulubione";
+
+/* Class = "UINavigationController"; title = "Ulubione"; ObjectID = "fHE-EM-xTe"; */
+"fHE-EM-xTe.title" = "Ulubione";
+
+/* Class = "UILabel"; text = "Wykonawca:"; ObjectID = "g71-fx-w9s"; */
+"g71-fx-w9s.text" = "Wykonawca:";
+
+/* Class = "UITabBarItem"; title = "Ulubione"; ObjectID = "j4z-wv-LR4"; */
+"j4z-wv-LR4.title" = "Ulubione";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "ouj-bh-Fl0"; */
+"ouj-bh-Fl0.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qAW-OP-BJt"; */
+"qAW-OP-BJt.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wOl-9T-JCj"; */
+"wOl-9T-JCj.text" = "Label";

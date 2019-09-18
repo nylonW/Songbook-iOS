@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  HarcApp
+
+  Created by Marcin Slusarek on 12/09/2019.
+  Copyright © 2019 Marcin Slusarek. All rights reserved.
+*/
+"songbook" = "Śpiewnik";
+"favourites" = "Ulubione";
+"copy_text" = "Kopiuj tekst";
+"copied" = "Skopiowano!";
+"settings_dark_mode" = "Tryb ciemny";
+"settings_clear_favourites" = "Wyczyść ulubione";
+"settings_show_chords" = "Pokaż chwyty";
+"settings_title" = "Ustawienia";
+"settings_clear" = "Wyczyść";
+"settings_cancel" = "Anuluj";
+"settings_clear_desc" = "Czy na pewno chcesz usunąć wszystkie piosenki z ulubionych?";
+"common_done" = "Gotowe";
+"search_song" = "Wyszukaj piosenkę";
+"song_author" = "Autor słów";
+"song_performer" = "Wykonawca";
+"fav_manage" = "Zarządzaj";
+"fav_manage_title" = "Zarządzaj ulubionymi";

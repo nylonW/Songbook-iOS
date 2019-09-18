@@ -31,6 +31,14 @@ class FavouriteSongPageViewController: UIPageViewController, SearchSongIndexDele
         self.view.backgroundColor = .white
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Museo", size: 20)!]
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("fav_manage", comment: ""), style: .plain, target: self, action: #selector(showManageViewController))
+    }
+    
+    @objc func showManageViewController() {
+        let manageController = UIStoryboard(name: "ManageFavourites", bundle: nil).instantiateInitialViewController()
+        self.navigationController?.pushViewController(manageController!, animated: true)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +51,7 @@ class FavouriteSongPageViewController: UIPageViewController, SearchSongIndexDele
         } else {
             self.view.backgroundColor = .white
         }
-        
+
         if favouriteSongs != UserDefaults.standard.stringArray(forKey: "favouriteSongs") ?? [] {
             favouriteSongs = UserDefaults.standard.stringArray(forKey: "favouriteSongs") ?? []
             
@@ -60,6 +68,7 @@ class FavouriteSongPageViewController: UIPageViewController, SearchSongIndexDele
                                    animated: false,
                                    completion: nil)
             }
+            
             reloadViews()
         }
     }
@@ -79,10 +88,9 @@ class FavouriteSongPageViewController: UIPageViewController, SearchSongIndexDele
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         favouriteSongs = UserDefaults.standard.stringArray(forKey: "favouriteSongs") ?? []
-        for song in SongManager.shared().songs {
-            if favouriteSongs.contains(song.fileName) {
-                vcs.append(self.newSongViewController(song: song))
-            }
+        
+        for file in favouriteSongs {
+            vcs.append(self.newSongViewController(song: SongManager.shared().songs.filter({ $0.fileName == file }).first!))
         }
         
         if vcs.count == 0 {
@@ -94,10 +102,9 @@ class FavouriteSongPageViewController: UIPageViewController, SearchSongIndexDele
     
     private func reloadViewControllers() -> [UIViewController] {
         vcs = []
-        for song in SongManager.shared().songs {
-            if favouriteSongs.contains(song.fileName) {
-                vcs.append(self.newSongViewController(song: song))
-            }
+        
+        for file in favouriteSongs {
+            vcs.append(self.newSongViewController(song: SongManager.shared().songs.filter({ $0.fileName == file }).first!))
         }
         
         return vcs

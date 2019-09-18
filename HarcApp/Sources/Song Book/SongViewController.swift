@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SongViewController: UIViewController {
+protocol PresentSearchControllerDelegate {
+    func presentSearchController(withText: String)
+}
+
+class SongViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var songText: UILabel!
@@ -17,6 +21,7 @@ class SongViewController: UIViewController {
     @IBOutlet weak var performer: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var favouriteButtonWidth: NSLayoutConstraint!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var constraint: NSLayoutConstraint?
     var song: Song?
@@ -31,6 +36,8 @@ class SongViewController: UIViewController {
     
     let safeSpacing: CGFloat = 2
     let fontStep: CGFloat = 0.6
+    let tagCellId = "TagCollectionViewCell"
+    var delegate: PresentSearchControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +50,15 @@ class SongViewController: UIViewController {
             favouriteButton.isHidden = true
             favouriteButtonWidth.constant = 0
             favouriteButton.layoutIfNeeded()
+            collectionView.isHidden = true
         }
 
         if let song = song {
             name.text = song.title
             songText.text = song.songText
             chords.text = song.songChords
-            author.text = "Autor słów: \(song.author ?? "-")"
-            performer.text = "Wykonawca: \(song.performer ?? "-")"
+            author.text = "\(NSLocalizedString("song_author", comment: "")): \(song.author ?? "-")"
+            performer.text = "\(NSLocalizedString("song_performer", comment: "")): \(song.performer ?? "-")"
             chords.lineSpacing(spacing: 1)
             songText.lineSpacing(spacing: 1)
             
@@ -89,12 +97,22 @@ class SongViewController: UIViewController {
                 favouriteButton.setImage(#imageLiteral(resourceName: "icons8-heart-50.png").withRenderingMode(.alwaysTemplate), for: .normal)
             }
         }
+        
+        setupCollectionView()
     }
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setDarkMode()
         setShowChords()
+    }
+    
+    func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        let nib = UINib(nibName: tagCellId, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: tagCellId)
+        
     }
 
     func setShowChords() {
@@ -150,6 +168,33 @@ class SongViewController: UIViewController {
         
         UserDefaults.standard.set(favouriteSongs, forKey: "favouriteSongs")
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return song?.tags.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellId, for: indexPath) as! TagCollectionViewCell
+        
+        cell.tagLabel.text = song?.tags[indexPath.item] ?? ""
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        guard let song = song else { return .zero }
+        
+        let width = song.tags[indexPath.item].widthOfString(usingFont: Constants.fonts.museo?.withSize(16) ?? UIFont())
+        
+        return CGSize(width: width + 17, height: 45)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        delegate?.presentSearchController(withText: song?.tags[indexPath.item] ?? "")
+    }
+    
 }
 
 extension UILabel {
